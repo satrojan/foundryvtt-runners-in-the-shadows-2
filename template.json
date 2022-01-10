@@ -12,12 +12,12 @@
     "playbook": "",
     "acquaintances": [],
     "acquaintances_label": "BITD.Acquaintances",
-    "stress": {
+    "edge": {
       "value": [0],
       "max": 9,
       "max_default": 9,
-      "name_default": "BITD.Stress",
-      "name": "BITD.Stress"
+      "name_default": "BITD.Edge",
+      "name": "BITD.Edge"
     },
     "trauma": {
       "max": 4,
@@ -60,33 +60,33 @@
       "special": 0
     },
     "attributes": {
-        "insight": {
+        "intuition": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsInsight",
+          "label": "BITD.SkillsIntuition",
           "skills": {
-            "hunt": {
-              "label": "BITD.SkillsHunt",
+            "stalk": {
+              "label": "BITD.SkillsStalk",
               "value": 0
             },
-            "study": {
-              "label": "BITD.SkillsStudy",
+            "interface": {
+              "label": "BITD.SkillsInterface",
               "value": 0
             },
             "survey": {
               "label": "BITD.SkillsSurvey",
               "value": 0
             },
-            "tinker": {
-              "label": "BITD.SkillsTinker",
+            "engineer": {
+              "label": "BITD.SkillsEngineer",
               "value": 0
             }
           }
         },
-        "prowess": {
+        "body": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsProwess",
+          "label": "BITD.SkillsBody",
           "skills": {
             "finesse": {
               "label": "BITD.SkillsFinesse",
@@ -96,8 +96,8 @@
               "label": "BITD.SkillsProwl",
               "value": 0
             },
-            "skirmish": {
-              "label": "BITD.SkillsSkirmish",
+            "fight": {
+              "label": "BITD.SkillsFight",
               "value": 0
             },
             "wreck": {
@@ -106,13 +106,13 @@
             }
           }
         },
-        "resolve": {
+        "willpower": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsResolve",
+          "label": "BITD.SkillsWillpower",
           "skills": {
-            "attune": {
-              "label": "BITD.SkillsAttune",
+            "study": {
+              "label": "BITD.SkillsStudy",
               "value": 0
             },
             "command": {
@@ -123,8 +123,8 @@
               "label": "BITD.SkillsConsort",
               "value": 0
             },
-            "sway": {
-              "label": "BITD.SkillsSway",
+            "influence": {
+              "label": "BITD.SkillsInfluence",
               "value": 0
             }
           }
@@ -262,18 +262,18 @@
     "templates": ["default", "logic", "activatedEffect"],
     "experience_clues": "",
     "base_skills": {
-      "hunt": [0],
-      "study": [0],
+      "engineer": [0],
+      "interface": [0],
+      "stalk": [0],
       "survey": [0],
-      "tinker": [0],
+      "fight": [0],
       "finesse": [0],
       "prowl": [0],
-      "skirmish": [0],
       "wreck": [0],
-      "attune": [0],
       "command": [0],
       "consort": [0],
-      "sway": [0]
+      "influence": [0],
+      "study": [0]
     }
   },
   "ability": {

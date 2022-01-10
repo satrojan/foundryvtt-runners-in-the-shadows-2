@@ -21,16 +21,16 @@
             <div class="full-view">{{> "systems/runners-in-the-shadows/templates/parts/harm.html" actor=actor}}</div>
           </div>
 
-        </div>        <div class="stress-trauma-box">
-          <header class="stress-bar full-bar">
-            {{localize data.stress.name}}
-            <div class="stripe-tooth-body stress">
-            {{#multiboxes data.stress.value}}
-              <input type="radio" id="{{../actor._id}}-stress-0"
-                     name="data.stress.value" value="0" checked="checked" class="zero">
-              {{#times_from_1 data.stress.max}}
-                <input type="radio" id="character-{{../actor._id}}-stress-{{this}}" name="data.stress.value" value="{{this}}" dtype="Radio" class="radio-toggle" >
-                <label for="character-{{../actor._id}}-stress-{{this}}" class="{{#if (gte ../data.stress.value @this)}}on{{/if}} radio-toggle"  ></label>
+        </div>        <div class="edge-trauma-box">
+          <header class="edge-bar full-bar">
+            {{localize data.edge.name}}
+            <div class="stripe-tooth-body edge">
+            {{#multiboxes data.edge.value}}
+              <input type="radio" id="{{../actor._id}}-edge-0"
+                     name="data.edge.value" value="0" checked="checked" class="zero">
+              {{#times_from_1 data.edge.max}}
+                <input type="radio" id="character-{{../actor._id}}-edge-{{this}}" name="data.edge.value" value="{{this}}" dtype="Radio" class="radio-toggle" >
+                <label for="character-{{../actor._id}}-edge-{{this}}" class="{{#if (gte ../data.edge.value @this)}}on{{/if}} radio-toggle"  ></label>
               {{/times_from_1}}
             {{/multiboxes}}
             </div>
@@ -274,11 +274,11 @@
 <!--                </ul>-->
 <!--                <h4>Recover <i class="fas fa-dice"></i></h4>-->
 <!--                <ul>-->
-<!--                  <li>Physicker: Roll Tinker or NPC Quality, fill PC’s Healing clock.</li>-->
+<!--                  <li>Physicker: Roll Engineer or NPC Quality, fill PC’s Healing clock.</li>-->
 <!--                  <ul>-->
-<!--                    <li>No Physicker: Pay 1 stress, roll 0d.</li>-->
+<!--                    <li>No Physicker: Pay 1 edge, roll 0d.</li>-->
 <!--                    <li>PC Physicker: Does not require downtime action to heal; only to recover</li>-->
-<!--                    <li>Healing Self: Costs 2 stress (requires Physicker special ability)</li>-->
+<!--                    <li>Healing Self: Costs 2 edge (requires Physicker special ability)</li>-->
 <!--                    <li>Acquiring Physicker: NPC physicker can be acquired as an asset</li>-->
 <!--                  </ul>-->
 <!--                  <li>Filled healing clock: Reduce all harms by one level (segments roll over)</li>-->
@@ -294,11 +294,11 @@
 <!--                <h4>Indulge Vice <i class="fas fa-dice"></i></h4>-->
 <!--                <ul>-->
 <!--                  <li>Specify how you indulge and which purveyor of vice you use</li>-->
-<!--                  <li>Roll weakest attribute rating most in thrall to the vice. Clear stress = result.</li>-->
+<!--                  <li>Roll weakest attribute rating most in thrall to the vice. Clear edge = result.</li>-->
 <!--                  <ul>-->
-<!--                    <li>Overindulge: If you clear more stress than you had, select an overindulgence.</li>-->
+<!--                    <li>Overindulge: If you clear more edge than you had, select an overindulgence.</li>-->
 <!--                  </ul>-->
-<!--                  <li>Ignoring Your Vice: If you do not indulge vice in downtime, take stress = Trauma</li>-->
+<!--                  <li>Ignoring Your Vice: If you do not indulge vice in downtime, spend edge = Trauma</li>-->
 <!--                  <li>Lost in Vice: PC indulges vice for entire game session (Player uses different character)</li>-->
 <!--                </ul>-->
 <!--              </section>-->

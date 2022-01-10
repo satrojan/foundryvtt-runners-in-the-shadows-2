@@ -34,7 +34,7 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 // Acquire asset (tier roll)
 // Recover (clock roll)
 // Reduce heat (action roll)
-// Indulge Vice (clear stress = result)
+// Indulge Vice (clear edge = result)
 
 async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "") {
   
@@ -75,9 +75,9 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 
     result = await renderTemplate("systems/runners-in-the-shadows/templates/chat/action-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize});
   } else {
-    let stress = getBladesRollStress(rolls, zeromode);
+    let edge = getBladesRollEdge(rolls, zeromode);
     
-    result = await renderTemplate("systems/runners-in-the-shadows/templates/chat/resistance-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, stress: stress});
+    result = await renderTemplate("systems/runners-in-the-shadows/templates/chat/resistance-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, edge: edge});
   }
 
   let messageData = {
@@ -150,13 +150,13 @@ export function getBladesRollStatus(rolls, zeromode = false) {
 
 }
 /**
- * Get stress of the Roll.
+ * Get edge of the Roll.
  * @param {Array} rolls 
  * @param {Boolean} zeromode 
  */
-export function getBladesRollStress(rolls, zeromode = false) {
+export function getBladesRollEdge(rolls, zeromode = false) {
 
-  var stress = 6;
+  var edge = 6;
 
   // Sort roll values from lowest to highest.
   let sorted_rolls = rolls.map(i => i.result).sort();
@@ -164,7 +164,7 @@ export function getBladesRollStress(rolls, zeromode = false) {
   let roll_status = "failure"
 
   if (sorted_rolls[0] === 6 && zeromode) {
-    stress = -1;
+    edge = -1;
   }
   else {
     let use_die;
@@ -182,14 +182,14 @@ export function getBladesRollStress(rolls, zeromode = false) {
     }
 
     if (use_die === 6 && prev_use_die && prev_use_die === 6) {
-      stress = -1;
+      edge = -1;
     } else {
-      stress = 6 - use_die;
+      edge = 6 - use_die;
     }
 
   }
 
-  return stress;
+  return edge;
 
 }
 

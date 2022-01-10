@@ -112,13 +112,13 @@ async function _migrateActor(actor) {
     }
   }
 
-  // Migrate Stress to Array
-  if (typeof actor.data.data.stress[0] !== 'undefined') {
-    updateData[`data.stress.value`] = actor.data.data.stress;
-    updateData[`data.stress.max`] = 9;
-    updateData[`data.stress.max_default`] = 9;
-    updateData[`data.stress.name_default`] = "BITD.Stress";
-    updateData[`data.stress.name`] = "BITD.Stress";
+  // Migrate Edge to Array
+  if (typeof actor.data.data.edge[0] !== 'undefined') {
+    updateData[`data.edge.value`] = actor.data.data.edge;
+    updateData[`data.edge.max`] = 9;
+    updateData[`data.edge.max_default`] = 9;
+    updateData[`data.edge.name_default`] = "BITD.Edge";
+    updateData[`data.edge.name`] = "BITD.Edge";
   }
 
   // Migrate Trauma to Array

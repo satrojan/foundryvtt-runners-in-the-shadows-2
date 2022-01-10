@@ -69,10 +69,10 @@ nav{
 // Reputation
 #crew-reputation {
   border-top: 3px solid $almost_black;
-  @include toothradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+  @include toothradio(17px, 50px, "assets/teeth/edgetooth-halfgrey.png", "assets/teeth/edgetooth-red.png");
 
   input[disabled="disabled"] + label {
-    background-image: url(assets/teeth/stresstooth-black.png);
+    background-image: url(assets/teeth/edgetooth-black.png);
   }
 }
 
@@ -117,7 +117,7 @@ nav{
 
 #crew-hold {
   border-top: 3px solid $almost_black;
-  @include toothradio_single(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+  @include toothradio_single(17px, 50px, "assets/teeth/edgetooth-halfgrey.png", "assets/teeth/edgetooth-red.png");
   width: 221px;
 }
 
@@ -266,9 +266,9 @@ nav{
     margin-right: 0px;
   }
 
-  // Stress
+  // Edge
   .big-teeth {
-    @include toothradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+    @include toothradio(17px, 50px, "assets/teeth/edgetooth-halfgrey.png", "assets/teeth/edgetooth-red.png");
   }
 
   /* Trauma */

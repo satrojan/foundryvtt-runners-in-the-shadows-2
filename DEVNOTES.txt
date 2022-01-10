@@ -1,0 +1,25 @@
+System link: https://raw.githubusercontent.com/justinross/foundryvtt-runners-in-the-shadows/master/system.json
+
+Playbooks:
+Adept (A)
+Face (F)
+Hacker (H)
+Mage (Ma)
+Muscle (Mu)
+Punk (P)
+Rigger (R)
+Snake (S)
+Techno (Te)
+Trigger (Tr)
+
+- Create new Class under Items->Classes
+- Create NPCs under Actors->NPCs
+- Create Items under Items->Items
+
+1/10:
+- Initial rename of all instances of blades-in-the-dark to runners-in-the-shadows
+- Renamed Insight/Prowess/Resolve to Inuition/Body/Willpower
+- Renamed Stress to Edge
+- Renamed Hunt/Study/Survey/Tinker to /Stalk/Interface/Survey/Engineer
+- Renamed Finesse/Prowl/Skirmish/Wreck to Finesse/Prowl/Fight/Wreck
+- Renamed Study/Command/Consort/Sway to Study/Command/Consort/Influence

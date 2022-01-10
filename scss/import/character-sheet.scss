@@ -141,7 +141,7 @@
         right: 1px;
         @include toothradio(10px, 25px, "assets/teeth/xptooth-white.png", "assets/teeth/xptooth-red.png");
       }
-      &.stress{
+      &.edge{
         position: absolute;
         top: 1px;
         right: 1px;
@@ -427,14 +427,14 @@
       }
 
 
-      .stress-trauma-box{
+      .edge-trauma-box{
         width: 100%;
         height: 2em;
         position: absolute;
         bottom: 10px;
         left: 0;
 
-        .stress-bar{
+        .edge-bar{
           position: relative;
           z-index: 100;
         }

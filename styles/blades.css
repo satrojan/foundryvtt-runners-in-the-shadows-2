@@ -367,7 +367,7 @@
 .runners-in-the-shadows.crew.sheet #crew-reputation label {
   height: 50px;
   width: 17px;
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/edgetooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 3px;
@@ -394,14 +394,14 @@
   display: none;
 }
 .runners-in-the-shadows.crew.sheet #crew-reputation label {
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
+  background-image: url("assets/teeth/edgetooth-halfgrey.png");
   background-size: 100% 100%;
 }
 .runners-in-the-shadows.crew.sheet #crew-reputation label.on {
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/edgetooth-red.png");
 }
 .runners-in-the-shadows.crew.sheet #crew-reputation input[disabled=disabled] + label {
-  background-image: url(assets/teeth/stresstooth-black.png);
+  background-image: url(assets/teeth/edgetooth-black.png);
 }
 .runners-in-the-shadows.crew.sheet #turf-container {
   overflow-x: scroll;
@@ -582,7 +582,7 @@
 .runners-in-the-shadows.crew.sheet #crew-hold label {
   height: 50px;
   width: 17px;
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
+  background-image: url("assets/teeth/edgetooth-halfgrey.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 5px;
@@ -594,7 +594,7 @@
   display: none;
 }
 .runners-in-the-shadows.crew.sheet #crew-hold input:checked + label {
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/edgetooth-red.png");
 }
 .runners-in-the-shadows.crew.sheet #crew-tier {
   background-color: #999;
@@ -733,7 +733,7 @@
 .runners-in-the-shadows.crew.sheet .big-teeth-section .big-teeth label {
   height: 50px;
   width: 17px;
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/edgetooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 3px;
@@ -760,11 +760,11 @@
   display: none;
 }
 .runners-in-the-shadows.crew.sheet .big-teeth-section .big-teeth label {
-  background-image: url("assets/teeth/stresstooth-halfgrey.png");
+  background-image: url("assets/teeth/edgetooth-halfgrey.png");
   background-size: 100% 100%;
 }
 .runners-in-the-shadows.crew.sheet .big-teeth-section .big-teeth label.on {
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/edgetooth-red.png");
 }
 .runners-in-the-shadows.crew.sheet .big-teeth-section .small-teeth-container .small-teeth-wrap {
   display: flex;
@@ -1001,14 +1001,14 @@
 .runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.right label.on {
   background-image: url("assets/teeth/xptooth-red.png");
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge {
   position: absolute;
   top: 1px;
   right: 1px;
   display: flex;
   /* Hide the browser's default checkbox */
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label {
   height: 25px;
   width: 10px;
   background-image: url("assets/teeth/xptooth-red.png");
@@ -1018,30 +1018,30 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label:last-of-type {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label:last-of-type {
   margin-right: 0px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label[for$="-0"] {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label[for$="-0"] {
   width: auto;
   height: auto;
   background-image: none !important;
   color: #EEEFFF;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label[for$="-0"] i {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label[for$="-0"] i {
   margin-top: 4px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label:hover {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress input {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge input {
   display: none;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label {
   background-image: url("assets/teeth/xptooth-white.png");
   background-size: 100% 100%;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.stress label.on {
+.runners-in-the-shadows.actor.pc #tidy-redesign header.full-bar .stripe-tooth-body.edge label.on {
   background-image: url("assets/teeth/xptooth-red.png");
 }
 .runners-in-the-shadows.actor.pc #tidy-redesign .sheet-toggles {
@@ -1548,23 +1548,23 @@
 .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .load-box .over-max {
   color: #660000;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box {
   width: 100%;
   height: 2em;
   position: absolute;
   bottom: 10px;
   left: 0;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box .stress-bar {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box .edge-bar {
   position: relative;
   z-index: 100;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box .trauma-box {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box .trauma-box {
   padding: 0 0 2px;
   position: relative;
   z-index: 1;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box .trauma-box .trauma-list {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box .trauma-box .trauma-list {
   width: 100%;
   height: 100%;
   background-color: #bbb;
@@ -1575,16 +1575,16 @@
   padding-top: 5px;
   border-radius: 0 0 1em 1em;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box .trauma-box .trauma-list .trauma-item {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box .trauma-box .trauma-list .trauma-item {
   pointer-events: all;
   display: inline-block;
   font-weight: bold;
   color: #660000;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box .trauma-box .trauma-list .trauma-item:not(:last-of-type)::after {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box .trauma-box .trauma-list .trauma-item:not(:last-of-type)::after {
   content: " •";
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .stress-trauma-box .trauma-box .trauma-list .add_trauma {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .edge-trauma-box .trauma-box .trauma-list .add_trauma {
   font-size: 0.8em;
 }
 .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .name-alias {

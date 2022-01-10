@@ -2,7 +2,7 @@
   "name": "runners-in-the-shadows",
   "title": "Runners in the Shadows",
   "description": "Runners in the Shadows game system.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimumCoreVersion": "0.8.5",
   "compatibleCoreVersion": "0.9.0",
   "templateVersion": 1,
