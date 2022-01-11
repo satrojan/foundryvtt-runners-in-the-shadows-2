@@ -854,6 +854,8 @@
   position: relative;
   margin: 5px;
   font-family: "Crimson Text", serif;
+  background-image: url(assets/backgrounds/whitetechbackground.png);
+  background-size: auto;
 }
 .runners-in-the-shadows.actor.pc #tidy-redesign input[type=checkbox] {
   width: 1em;

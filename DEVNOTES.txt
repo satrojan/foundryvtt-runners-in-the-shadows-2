@@ -1,5 +1,7 @@
 System link: https://raw.githubusercontent.com/justinross/foundryvtt-runners-in-the-shadows/master/system.json
 
+background-image: url(assets/backgrounds/techbackground.png)
+
 Playbooks:
 Adept (A)
 Face (F)
@@ -26,3 +28,4 @@ Trigger (Tr)
 
 1/11
 - Renamed Coin/Coins to Nuyen
+- Removed BitD Items and added Common RitS items to compendium
