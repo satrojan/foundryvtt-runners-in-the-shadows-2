@@ -65,20 +65,20 @@
           "exp_max": 6,
           "label": "BITD.SkillsIntuition",
           "skills": {
-            "stalk": {
-              "label": "BITD.SkillsStalk",
+            "engineer": {
+              "label": "BITD.SkillsEngineer",
               "value": 0
             },
             "interface": {
               "label": "BITD.SkillsInterface",
               "value": 0
             },
-            "survey": {
-              "label": "BITD.SkillsSurvey",
+            "stalk": {
+              "label": "BITD.SkillsStalk",
               "value": 0
             },
-            "engineer": {
-              "label": "BITD.SkillsEngineer",
+            "survey": {
+              "label": "BITD.SkillsSurvey",
               "value": 0
             }
           }
@@ -88,16 +88,16 @@
           "exp_max": 6,
           "label": "BITD.SkillsBody",
           "skills": {
+            "fight": {
+              "label": "BITD.SkillsFight",
+              "value": 0
+            },
             "finesse": {
               "label": "BITD.SkillsFinesse",
               "value": 0
             },
             "prowl": {
               "label": "BITD.SkillsProwl",
-              "value": 0
-            },
-            "fight": {
-              "label": "BITD.SkillsFight",
               "value": 0
             },
             "wreck": {
@@ -111,10 +111,6 @@
           "exp_max": 6,
           "label": "BITD.SkillsWillpower",
           "skills": {
-            "study": {
-              "label": "BITD.SkillsStudy",
-              "value": 0
-            },
             "command": {
               "label": "BITD.SkillsCommand",
               "value": 0
@@ -125,6 +121,10 @@
             },
             "influence": {
               "label": "BITD.SkillsInfluence",
+              "value": 0
+            },
+            "study": {
+              "label": "BITD.SkillsStudy",
               "value": 0
             }
           }
