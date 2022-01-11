@@ -239,12 +239,12 @@
 .runners-in-the-shadows td {
   padding: 5px;
 }
-.runners-in-the-shadows.crew.sheet .coins {
+.runners-in-the-shadows.crew.sheet .nuyen {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-wrap: wrap;
 }
-.runners-in-the-shadows.crew.sheet .coins label {
+.runners-in-the-shadows.crew.sheet .nuyen label {
   height: 15px;
   width: 15px;
   background-color: #DAA520;
@@ -253,39 +253,39 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.runners-in-the-shadows.crew.sheet .coins label[for$="-0"] {
+.runners-in-the-shadows.crew.sheet .nuyen label[for$="-0"] {
   margin-right: 0px;
 }
-.runners-in-the-shadows.crew.sheet .coins label:hover {
+.runners-in-the-shadows.crew.sheet .nuyen label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.runners-in-the-shadows.crew.sheet .coins input {
+.runners-in-the-shadows.crew.sheet .nuyen input {
   display: none;
 }
-.runners-in-the-shadows.crew.sheet .coins input:checked ~ label {
+.runners-in-the-shadows.crew.sheet .nuyen input:checked ~ label {
   background-color: #EEEFFF;
 }
-.runners-in-the-shadows.crew.sheet .coins input:checked + label {
+.runners-in-the-shadows.crew.sheet .nuyen input:checked + label {
   background-color: #DAA520;
 }
-.runners-in-the-shadows.crew.sheet .coins input ~ label {
+.runners-in-the-shadows.crew.sheet .nuyen input ~ label {
   margin-right: 3px;
   margin-bottom: 3px;
   transition: filter 0.2s;
   cursor: pointer;
 }
-.runners-in-the-shadows.crew.sheet .coins input ~ label[for$="0"] {
+.runners-in-the-shadows.crew.sheet .nuyen input ~ label[for$="0"] {
   border-width: 2px;
 }
-.runners-in-the-shadows.crew.sheet .coins input ~ label:hover {
+.runners-in-the-shadows.crew.sheet .nuyen input ~ label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.runners-in-the-shadows.crew.sheet .coins.coins-hands {
+.runners-in-the-shadows.crew.sheet .nuyen.nuyen-hands {
   width: 36px;
 }
-.runners-in-the-shadows.crew.sheet .coins.coins-stashed {
+.runners-in-the-shadows.crew.sheet .nuyen.nuyen-stashed {
   width: 190px;
 }
 .runners-in-the-shadows.crew.sheet .item {
@@ -324,13 +324,13 @@
 .runners-in-the-shadows.crew.sheet nav {
   padding-bottom: 10px;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins {
+.runners-in-the-shadows.crew.sheet .crew-nuyen {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-wrap: wrap;
   max-width: 72px;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins label {
+.runners-in-the-shadows.crew.sheet .crew-nuyen label {
   height: 15px;
   width: 15px;
   background-color: #DAA520;
@@ -339,23 +339,23 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins label[for$="-0"] {
+.runners-in-the-shadows.crew.sheet .crew-nuyen label[for$="-0"] {
   margin-right: 0px;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins label:hover {
+.runners-in-the-shadows.crew.sheet .crew-nuyen label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins input {
+.runners-in-the-shadows.crew.sheet .crew-nuyen input {
   display: none;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins input:checked ~ label {
+.runners-in-the-shadows.crew.sheet .crew-nuyen input:checked ~ label {
   background-color: #EEEFFF;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins input:checked + label {
+.runners-in-the-shadows.crew.sheet .crew-nuyen input:checked + label {
   background-color: #DAA520;
 }
-.runners-in-the-shadows.crew.sheet .crew-coins label {
+.runners-in-the-shadows.crew.sheet .crew-nuyen label {
   margin-right: 3px;
   margin-bottom: 3px;
 }
@@ -1154,7 +1154,7 @@
 .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons > div:not(:last-of-type) {
   margin-bottom: 20px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box {
   max-width: 30px;
   max-height: 30px;
   box-sizing: border-box;
@@ -1165,17 +1165,17 @@
   text-align: left;
   z-index: 600;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .mini-view {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .mini-view {
   text-align: center;
   position: relative;
   width: 30px;
   height: 30px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .mini-view .placeholder {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .mini-view .placeholder {
   height: 100%;
   width: 100%;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .mini-view .label-text {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .mini-view .label-text {
   position: relative;
   top: -5px;
   left: 0px;
@@ -1185,13 +1185,13 @@
   border-radius: 10px;
   text-align: center;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view {
   display: none;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box.open {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box.open {
   color: #191813;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box.open .full-view {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box.open .full-view {
   background-color: #bbb;
   border: 3px solid #666;
   display: block;
@@ -1204,20 +1204,20 @@
   width: 250px;
   box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.25);
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box > div {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box > div {
   display: inline-block;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .mini-view {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .mini-view {
   background-repeat: no-repeat;
-  background-image: url(assets/icons/coins.png);
+  background-image: url(assets/icons/nuyen.png);
   background-size: contain;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen {
   display: flex;
   /* Hide the browser's default checkbox */
   flex-wrap: wrap;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins label {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen label {
   height: 15px;
   width: 15px;
   background-color: #DAA520;
@@ -1226,46 +1226,46 @@
   transition: filter 0.1s;
   cursor: pointer;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins label[for$="-0"] {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen label[for$="-0"] {
   margin-right: 0px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins label:hover {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins input {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen input {
   display: none;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins input:checked ~ label {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen input:checked ~ label {
   background-color: #EEEFFF;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins input:checked + label {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen input:checked + label {
   background-color: #DAA520;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins input ~ label {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen input ~ label {
   margin-right: 3px;
   margin-bottom: 3px;
   transition: filter 0.2s;
   cursor: pointer;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins input ~ label[for$="0"] {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen input ~ label[for$="0"] {
   border-width: 2px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins input ~ label:hover {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen input ~ label:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins.coins-hands {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen.nuyen-hands {
   width: 36px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box .full-view .coins.coins-stashed {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box .full-view .nuyen.nuyen-stashed {
   width: 190px;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box.open .full-view .coins {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box.open .full-view .nuyen {
   display: flex;
   justify-content: space-between;
 }
-.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box.open .full-view .coins .hand, .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .coins-box.open .full-view .coins .stash {
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box.open .full-view .nuyen .hand, .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .character-portrait .status-buttons .nuyen-box.open .full-view .nuyen .stash {
   display: inline-block;
   text-align: left;
 }

@@ -16,7 +16,7 @@ Hover over items in the list of purchased skills to see the skill description:
 
 ![image](https://user-images.githubusercontent.com/1120106/130699030-89ff398a-a854-46e3-b75f-3a92676c429c.png)
 
-Harm and Coins are easily accessed via clickable popups by the character portrait:
+Harm and Nuyen are easily accessed via clickable popups by the character portrait:
 
 ![image](https://user-images.githubusercontent.com/1120106/130699095-dd25bc35-5741-44fb-aadc-01ef08f5f7b6.png) ![image](https://user-images.githubusercontent.com/1120106/130699077-cdaf61ce-4786-4372-a2aa-455278cf2b0d.png) 
 

@@ -1,0 +1,27 @@
+$nuyen_size: 15px;
+$nuyen_margin: 3px;
+
+.nuyen {
+  @include custom_radio_square($nuyen_size);
+  flex-wrap: wrap;
+
+  input ~ label {
+    margin-right: $nuyen_margin;
+    margin-bottom: $nuyen_margin;
+
+    &[for$="0"] {
+      border-width: 2px;
+    }
+
+    @include changeable($transition-period, $hover-brightness, $hover-opacity);
+  }
+
+  &.nuyen-hands {
+    width: 36px;
+  }
+
+  &.nuyen-stashed {
+    width: 190px;
+  }
+
+}

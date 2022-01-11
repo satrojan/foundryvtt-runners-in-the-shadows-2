@@ -7,9 +7,9 @@
           <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" >
         </div>
         <div class="status-buttons">
-          <div class="coins-box {{#if actor.flags.runners-in-the-shadows.coins_open}}open{{/if}}">
-            <div class="mini-view"><div class="placeholder"></div><span class="coin-values label-text">{{data.coins}}/{{data.coins_stashed}}</span></div>
-            <div class="full-view">{{> "systems/runners-in-the-shadows/templates/parts/coins.html" actor=actor}}</div>
+          <div class="nuyen-box {{#if actor.flags.runners-in-the-shadows.nuyen_open}}open{{/if}}">
+            <div class="mini-view"><div class="placeholder"></div><span class="nuyen-values label-text">{{data.nuyen}}/{{data.nuyen_stashed}}</span></div>
+            <div class="full-view">{{> "systems/runners-in-the-shadows/templates/parts/nuyen.html" actor=actor}}</div>
           </div>
           <div class="load-box {{#if actor.flags.runners-in-the-shadows.load_open}}open{{/if}}">
             <div class="mini-view"><div class="placeholder"></div><span class="load-amounts label-text {{#if (lt data.loadout max_load)}}below-max{{else if (eq data.loadout max_load)}}at-max{{else if (gt data.loadout max_load)}}over-max{{/if}}">{{data.loadout}}/{{max_load}}</span></div>
@@ -254,7 +254,7 @@
 <!--                  <div class="header-row"><span>Crit: 5 segments</span><span>6: 3 segments</span><span>4/5: 2 segments</span><span>1-3: 1 segment</span></div>-->
 <!--                  <div class="header-row"><span>Crit: Tier +2</span><span>6: Tier +1</span><span>4/5: Tier</span><span>1-3: Tier -1</span></div>-->
 <!--                </header>-->
-<!--                <p><em>(2 activities per downtime; 1 if at war &mdash; +1 action for 1 Coin or 1 Rep)</em></p>-->
+<!--                <p><em>(2 activities per downtime; 1 if at war &mdash; +1 action for 1 Nuyen or 1 Rep)</em></p>-->
 <!--                <h4>Acquire Asset <i class="fas fa-dice"></i></h4>-->
 <!--                <ul>-->
 <!--                  <li>Roll crew's Tier to determine relative quality of temporary asset (usually 1 score)</li>-->

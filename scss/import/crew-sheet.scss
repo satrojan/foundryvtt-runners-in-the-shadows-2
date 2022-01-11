@@ -1,7 +1,7 @@
-$coin_size: 15px;
-$coin_margin: 3px;
+$nuyen_size: 15px;
+$nuyen_margin: 3px;
 
-@import 'coins.scss';
+@import 'nuyen.scss';
 
 .item {
 
@@ -53,15 +53,15 @@ nav{
 }
 
 
-// Crew Coins
-.crew-coins {
-  @include custom_radio_square($coin_size);
+// Crew Nuyen
+.crew-nuyen {
+  @include custom_radio_square($nuyen_size);
   flex-wrap: wrap;
-  max-width: 4 * ($coin_size + $coin_margin);
+  max-width: 4 * ($nuyen_size + $nuyen_margin);
 
   label {
-    margin-right: $coin_margin;
-    margin-bottom: $coin_margin;
+    margin-right: $nuyen_margin;
+    margin-bottom: $nuyen_margin;
   }
 }
 

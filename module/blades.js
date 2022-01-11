@@ -132,12 +132,12 @@ Hooks.once("init", async function() {
     return html;
   });
 
-  Handlebars.registerHelper('crew_vault_coins', (max_coins, options) => {
+  Handlebars.registerHelper('crew_vault_nuyen', (max_nuyen, options) => {
 
     let html = options.fn(this);
-    for (let i = 1; i <= max_coins; i++) {
+    for (let i = 1; i <= max_nuyen; i++) {
 
-      html += "<input type=\"radio\" id=\"crew-coins-vault-" + i + "\" name=\"data.vault.value\" value=\"" + i + "\"><label for=\"crew-coins-vault-" + i + "\"></label>";
+      html += "<input type=\"radio\" id=\"crew-nuyen-vault-" + i + "\" name=\"data.vault.value\" value=\"" + i + "\"><label for=\"crew-nuyen-vault-" + i + "\"></label>";
     }
 
     return html;

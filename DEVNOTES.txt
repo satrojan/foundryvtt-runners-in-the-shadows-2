@@ -22,4 +22,7 @@ Trigger (Tr)
 - Renamed Stress to Edge
 - Renamed Hunt/Study/Survey/Tinker to /Stalk/Interface/Survey/Engineer
 - Renamed Finesse/Prowl/Skirmish/Wreck to Finesse/Prowl/Fight/Wreck
-- Renamed Study/Command/Consort/Sway to Study/Command/Consort/Influence
+- Renamed Attune/Command/Consort/Sway to Study/Command/Consort/Influence
+
+1/11
+- Renamed Coin/Coins to Nuyen

@@ -565,12 +565,12 @@ export class BladesActorSheet extends BladesSheet {
       this.actor.update({data: {acquaintances : acquaintances}});
     });
 
-    html.find('.coins-box').click(ev => {
-      //note: apparently have to do this via flag, as just adding a class doesn't help when the box get rerendered on data change. Fun. Only downside is that it will probably show the coins opening and closing for anyone else viewing the sheet, too.
-      this.actor.getFlag('runners-in-the-shadows', 'coins_open') ? this.actor.setFlag('runners-in-the-shadows', 'coins_open', false) : this.actor.setFlag('runners-in-the-shadows', 'coins_open', true);
+    html.find('.nuyen-box').click(ev => {
+      //note: apparently have to do this via flag, as just adding a class doesn't help when the box get rerendered on data change. Fun. Only downside is that it will probably show the nuyen opening and closing for anyone else viewing the sheet, too.
+      this.actor.getFlag('runners-in-the-shadows', 'nuyen_open') ? this.actor.setFlag('runners-in-the-shadows', 'nuyen_open', false) : this.actor.setFlag('runners-in-the-shadows', 'nuyen_open', true);
     });
 
-    html.find('.coins-box .full-view').click(ev => {
+    html.find('.nuyen-box .full-view').click(ev => {
       ev.stopPropagation();
     });
 
