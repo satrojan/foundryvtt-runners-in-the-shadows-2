@@ -14,6 +14,19 @@ Snake (S)
 Techno (Te)
 Trigger (Tr)
 
+data.acquaintances_label - Override - BITD.blah
+
+data.acquaintances_label
+
+BITD.ShrewdFriends (Face)
+BITD.1337Friends (Hacker)
+BITD.DangerousFriends (Muscle)
+BITD.ShadyFriends (Punk)
+BITD.HandyFriends (Rigger)
+BITD.SlyFriends (Snake)
+BITD.DeadlyFriends (Trigger)
+BITD.StrangeFriends (Adept, Mage, Techno)
+
 - Create new Class under Items->Classes
 - Create NPCs under Actors->NPCs
 - Create Items under Items->Items
