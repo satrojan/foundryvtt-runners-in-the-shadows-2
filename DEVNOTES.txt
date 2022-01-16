@@ -1,4 +1,5 @@
-System link: https://raw.githubusercontent.com/justinross/foundryvtt-runners-in-the-shadows/master/system.json
+Original System link:
+https://raw.githubusercontent.com/justinross/foundryvtt-blades-in-the-dark/4.0.0-b9/system.json
 
 background-image: url(assets/backgrounds/techbackground.png)
 
@@ -41,4 +42,12 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 
 1/11
 - Renamed Coin/Coins to Nuyen
-- Removed BitD Items and added Common RitS items to compendium
+- Removed BitD items and added common RitS items to compendium
+- Added background to character sheet
+
+1/12
+- Removed BitD Classes and added RitS classes
+
+1/16
+- Added class-specific items for all classes
+
