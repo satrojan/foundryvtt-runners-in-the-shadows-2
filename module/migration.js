@@ -163,7 +163,14 @@ async function _migrateActor(actor) {
           updateData[`data.heritage`] = old_heritage.name;
         }
       }
-
+      if (typeof actor.data.data.lineage === "undefined" || actor.data.data.lineage === "" || actor.data.data.lingeage === "Lineage") {
+        let old_lineage = actor.data.items.find(item => {
+          return item.type === "lineage";
+        });
+        if (typeof lineage != "undefined") {
+          updateData[`data.lineage`] = old_lineage.name;
+        }
+      }
       if (typeof actor.data.data.background === "undefined" || actor.data.data.background === "" || actor.data.data.background === "Background") {
         let old_background = actor.data.items.find(item => {
           return item.type === "background";

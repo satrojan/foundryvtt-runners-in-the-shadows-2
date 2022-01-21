@@ -129,6 +129,11 @@ export class BladesActor extends Actor {
         let vice = item_data.name;
         updateData = {data : { vice : vice}};
         break;
+      //set the character magical lineage
+      case "lineage":
+        let lineage = item_data.name;
+        updateData = {data : { lineage : lineage}};
+        break;        
     }
 
     //finalize the updated data

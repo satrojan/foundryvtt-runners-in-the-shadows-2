@@ -1603,6 +1603,9 @@
 .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .heritage-background {
   grid-area: sub-row-1;
 }
+.runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .lineage-background {
+  grid-area: sub-row-1;
+}
 .runners-in-the-shadows.actor.pc #tidy-redesign .minimized-view .look {
   grid-area: sub-row-2;
 }

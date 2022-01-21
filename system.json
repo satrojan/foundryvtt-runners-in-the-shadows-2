@@ -62,6 +62,13 @@
       "entity": "Item"
     },
     {
+      "name": "lineage",
+      "label": "Magical Lineage",
+      "system": "runners-in-the-shadows",
+      "path": "./packs/magical_lineages",
+      "entity": "Item"
+    },
+    {
       "name": "vice",
       "label": "Vices",
       "system": "runners-in-the-shadows",

@@ -5,6 +5,7 @@
     "alias": "",
     "look": "",
     "heritage": "",
+    "lineage": "",
     "background": "",
     "background-details": "",
     "vice": "",
@@ -172,7 +173,7 @@
     }
   },
   "Item": {
-    "types": ["faction", "item", "class", "ability", "heritage", "background", "vice", "crew_upgrade", "cohort", "crew_type", "crew_reputation", "crew_upgrade", "crew_ability"],
+    "types": ["faction", "item", "class", "ability", "heritage", "lineage", "background", "vice", "crew_upgrade", "cohort", "crew_type", "crew_reputation", "crew_upgrade", "crew_ability"],
     "templates": {
       "default": {
         "description": ""
@@ -281,6 +282,9 @@
   },
   "heritage": {
     "templates": ["default", "activatedEffect"]
+  },
+  "lineage": {
+  "templates": ["default", "activatedEffect"]
   },
   "background": {
     "templates": ["default", "activatedEffect"]
