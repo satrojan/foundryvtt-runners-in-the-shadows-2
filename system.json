@@ -65,7 +65,7 @@
       "name": "lineage",
       "label": "Magical Lineages",
       "system": "runners-in-the-shadows",
-      "path": "./packs/magical_lineage.db",
+      "path": "./packs/magical_lineages.db",
       "entity": "Item"
     },
     {
