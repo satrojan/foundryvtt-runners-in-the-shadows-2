@@ -51,3 +51,5 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 1/16
 - Added class-specific items for all classes
 
+1/21
+- Process to strip out CR from pdf copypasta - Ctrl+H, select Regex, search for $\n, replace with single space.  Highlight selection, Alt+L to search in selection, Replace All.
