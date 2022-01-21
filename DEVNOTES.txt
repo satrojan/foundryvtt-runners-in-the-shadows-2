@@ -51,3 +51,6 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 1/16
 - Added class-specific items for all classes
 
+1/20
+- Added Magical Lineages db and base entries
+- Added class-specific NPCs for friends/rivals
