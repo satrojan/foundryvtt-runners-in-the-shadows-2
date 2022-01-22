@@ -54,3 +54,6 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 1/20
 - Added Magical Lineages db and base entries
 - Added class-specific NPCs for friends/rivals
+
+1/21
+- Updated Heritages from Blades heritages to setting-specific heritages.
