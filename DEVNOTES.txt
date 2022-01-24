@@ -36,7 +36,7 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 - Initial rename of all instances of blades-in-the-dark to runners-in-the-shadows
 - Renamed Insight/Prowess/Resolve to Inuition/Body/Willpower
 - Renamed Stress to Edge
-- Renamed Hunt/Study/Survey/Tinker to /Stalk/Interface/Survey/Engineer
+- Renamed Hunt/Study/Survey/Tinker toJudges /Stalk/Interface/Survey/Engineer
 - Renamed Finesse/Prowl/Skirmish/Wreck to Finesse/Prowl/Fight/Wreck
 - Renamed Attune/Command/Consort/Sway to Study/Command/Consort/Influence
 
@@ -57,3 +57,20 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 
 1/21
 - Updated Heritages from Blades heritages to setting-specific heritages.
+
+1/21
+- Process to strip out CR from pdf copypasta - Ctrl+H, select Regex, search for $\n, replace with single space.  Highlight selection, Alt+L to search in selection, Replace All.
+
+1/22
+Use cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 47 to generate 47 IDs.  Use VSCode (shift+alt+i -> home) and paste them in, followed by :
+
+- MedSled
+- Kingston Council
+- The Judges
+Caribbean Public Utilities
+Occult Task Force
+British Consulate
+Native American Consulate
+Citizens on Patrol
+Baccarat
+=======
