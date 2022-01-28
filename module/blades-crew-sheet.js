@@ -27,7 +27,7 @@ export class BladesCrewSheet extends BladesSheet {
     data.actor = actorData;
     data.data = actorData.data;
 
-    // Calculate Turfs amount.
+    // Calculate Claims amount.
     // We already have Lair, so set to -1.
     let turfs_amount = 0
 
