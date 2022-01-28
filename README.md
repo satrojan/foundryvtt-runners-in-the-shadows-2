@@ -67,25 +67,6 @@ Contact Discord: `megastruktur#5704` in case you find any bugs or if you have an
 - When adding a new item you can hower a "question-circle" icon to see the item's description.
 - To add Custom abilities just add a new "Foundry Item" of the corresponding type and fill all the necessary info. Then drag it to the sheet or add via button on a sheet.
 
-Classes:
-- (C)  Cutter
-- (G)  Ghost
-- (H)  Hound
-- (Hu) Hull
-- (Le) Leech
-- (Lu) Lurk
-- (Sl) Slide
-- (Sp) Spider
-- (V)  Vampire
-- (W)  Whisper
-
-Crew Types:
-- (A)  Assassins
-- (B)  Bravos
-- (C)  Cult
-- (H)  Hawkers
-- (Sh) Shadows
-- (Sm) Smugglers
 
 ## Screenshots
 

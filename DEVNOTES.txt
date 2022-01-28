@@ -28,6 +28,27 @@ BITD.SlyFriends (Snake)
 BITD.DeadlyFriends (Trigger)
 BITD.StrangeFriends (Adept, Mage, Techno)
 
+Classes:
+- (C)  Cutter
+- (G)  Ghost
+- (H)  Hound
+- (Hu) Hull
+- (Le) Leech
+- (Lu) Lurk
+- (Sl) Slide
+- (Sp) Spider
+- (V)  Vampire
+- (W)  Whisper
+
+Crew Types:
+- (A)  Assassins - No Change
+- (B)  Bravos - (M) Mercs
+- (C)  Cult - No Change
+- (H)  Hawkers - Dealers (D)
+- (Sh) Shadows - No Change
+- (Sm) Smugglers - (Co) Couriers
+- Radicals
+
 - Create new Class under Items->Classes
 - Create NPCs under Actors->NPCs
 - Create Items under Items->Items
