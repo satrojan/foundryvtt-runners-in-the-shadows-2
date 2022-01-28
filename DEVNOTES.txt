@@ -85,13 +85,8 @@ Crew Types:
 1/22
 Use cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 47 to generate 47 IDs.  Use VSCode (shift+alt+i -> home) and paste them in, followed by :
 
-- MedSled
-- Kingston Council
-- The Judges
-Caribbean Public Utilities
-Occult Task Force
-British Consulate
-Native American Consulate
-Citizens on Patrol
-Baccarat
-=======
+1/27
+- Updated crew types
+
+1/28 
+- Updated crew abilities, paths for crew turfs
