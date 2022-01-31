@@ -305,28 +305,31 @@
         "label": "BITD.Expert"
       }
     },
-    "gang_type": ["Adepts"],
+    "gang_type": ["Technicians"],
     "gang_type_list": {
-
-      "Adepts": {
-        "label": "BITD.GangTypeAdepts",
-        "description": "BITD.GangTypeAdeptsDescription"
+      "Operatives": {
+        "label": "BITD.GangTypeOperatives",
+        "description": "BITD.GangTypeOperativesDescription"
       },
-      "Rooks": {
-        "label": "BITD.GangTypeRooks",
-        "description": "BITD.GangTypeRooksDescription"
+      "Technicians": {
+        "label": "BITD.GangTypeTechnicians",
+        "description": "BITD.GangTypeTechniciansDescription"
       },
-      "Rovers": {
-        "label": "BITD.GangTypeRovers",
-        "description": "BITD.GangTypeRoversDescription"
-      },
-      "Skulks": {
-        "label": "BITD.GangTypeSkulks",
-        "description": "BITD.GangTypeSkulksDescription"
+      "Thieves": {
+        "label": "BITD.GangTypeThieves",
+        "description": "BITD.GangTypeThievesDescription"
       },
       "Thugs": {
         "label": "BITD.GangTypeThugs",
         "description": "BITD.GangTypeThugsDescription"
+      },
+      "Transporters": {
+        "label": "BITD.GangTypeTransporters",
+        "description": "BITD.GangTypeTransportersDescription"
+      },
+      "Weirdos": {
+        "label": "BITD.GangTypeWeirdos",
+        "description": "BITD.GangTypeWeirdosDescription"
       }
     },
     "expert_type": "",

@@ -45,9 +45,17 @@ Crew Types:
 - (B)  Bravos - (M) Mercs
 - (C)  Cult - No Change
 - (H)  Hawkers - Dealers (D)
-- (Sh) Shadows - No Change
+- (Sh) Shadows - (S) Shadows
 - (Sm) Smugglers - (Co) Couriers
 - Radicals
+
+Team Types:
+Adepts - Technicians
+Rooks - Operatives
+Rovers - Transporters
+Skulks - Thieves
+Thugs
+(New) - Weirdos
 
 - Create new Class under Items->Classes
 - Create NPCs under Actors->NPCs
@@ -90,3 +98,7 @@ Use cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 47 to generate 
 
 1/28 
 - Updated crew abilities, paths for crew turfs
+
+1/30-31
+- Updated crew upgrades
+- Updated gang types 

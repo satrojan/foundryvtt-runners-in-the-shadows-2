@@ -59,6 +59,6 @@ oM7PW5hnf35GPvye:1:Shadows:(S) Extra Added Site:You have an added site beyond th
 SegOA8nS9MGoRqDc:1:Shadows:(S) Elite Operatives:All of your cohorts with the Operatives type get +1d to quality rolls for Operative-related actions.
 zBmn2iVWI5FpEPBi:1:Shadows:(S) Elite Thieves:All of your cohorts with the Thieves type get +1d to quality rolls for Thief-related actions.
 bwIMH4YCtTSyyv9Y:1:Dealers:(D) Elite Thugs:All of your cohorts with the Thugs type get +1d to quality rolls for Thug-related actions.
-YlEkhhJXA2ET8vtg:1:Dealers:(D) Elite Rooks:All of your cohorts with the Rooks type get +1d to quality rolls for Rook-related actions.
+YlEkhhJXA2ET8vtg:1:Dealers:(D) Elite Operatives:All of your cohorts with the Operatives type get +1d to quality rolls for Rook-related actions.
 ma5hUWysELF2FCnn:1:Dealers:(D) Dealer Rigging:One carried item is concealed and has no load. For example, you could carry a load of drugs or a weapon, perfectly concealed, for zero load.
 KTDJYcrf2B8S0EXC:1:Dealers:(D) Brokeback Contracts:Your Tier is effectively +1 higher in prison. This counts for any Tier-related element in prison, including the incarceration roll.
