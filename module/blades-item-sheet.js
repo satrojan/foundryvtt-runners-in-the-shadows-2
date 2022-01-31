@@ -43,7 +43,7 @@ export class BladesItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     html.find(".effect-control").click(ev => {
-      if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize("BITD.EffectWarning"))
+      if ( this.item.isOwned ) return ui.notifications.warn(game.i18n.localize("RITS.EffectWarning"))
       BladesActiveEffect.onManageActiveEffect(ev, this.item)
     });
   }

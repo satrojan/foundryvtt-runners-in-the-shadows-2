@@ -97,14 +97,14 @@ export class BladesActorSheet extends BladesSheet {
     items_html += '</div>';
 
     let d = new Dialog({
-      title: game.i18n.localize("BITD.AddExisting" + BladesHelpers.capitalizeFirstLetter(item_type)),
-      content:  `<h3>${game.i18n.localize("BITD.SelectToAdd" + BladesHelpers.capitalizeFirstLetter(item_type))}</h3>
+      title: game.i18n.localize("RITS.AddExisting" + BladesHelpers.capitalizeFirstLetter(item_type)),
+      content:  `<h3>${game.i18n.localize("RITS.SelectToAdd" + BladesHelpers.capitalizeFirstLetter(item_type))}</h3>
                     ${items_html}
                     `,
       buttons: {
         add: {
           icon: "<i class='fas fa-check'></i>",
-          label: game.i18n.localize("BITD.Add"),
+          label: game.i18n.localize("RITS.Add"),
           callback: async (html)=> {
             let itemInputs = html.find("input:checked");
             let items = [];
@@ -117,7 +117,7 @@ export class BladesActorSheet extends BladesSheet {
         },
         cancel: {
           icon: "<i class='fas fa-times'></i>",
-          label: game.i18n.localize("BITD.Cancel"),
+          label: game.i18n.localize("RITS.Cancel"),
           callback: ()=> close()
         }
       },
@@ -135,7 +135,7 @@ export class BladesActorSheet extends BladesSheet {
 
   itemContextMenu = [
     {
-      name: game.i18n.localize("BITD.TitleDeleteItem"),
+      name: game.i18n.localize("RITS.TitleDeleteItem"),
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
         this.actor.deleteEmbeddedDocuments("Item", [element.data("item-id")]);
@@ -145,14 +145,14 @@ export class BladesActorSheet extends BladesSheet {
 
   itemListContextMenu = [
     {
-      name: game.i18n.localize("BITD.AddNewItem"),
+      name: game.i18n.localize("RITS.AddNewItem"),
       icon: '<i class="fas fa-plus"></i>',
       callback: async (element) => {
         await this.addNewItem();
       }
     },
     {
-      name: game.i18n.localize("BITD.AddExistingItem"),
+      name: game.i18n.localize("RITS.AddExistingItem"),
       icon: '<i class="fas fa-plus"></i>',
       callback: async (element) => {
         await this.generateAddExistingItemDialog("item", this.actor);
@@ -162,7 +162,7 @@ export class BladesActorSheet extends BladesSheet {
 
   traumaListContextMenu = [
     {
-      name: game.i18n.localize("BITD.DeleteTrauma"),
+      name: game.i18n.localize("RITS.DeleteTrauma"),
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
         let traumaToDisable = element.data("trauma");
@@ -176,7 +176,7 @@ export class BladesActorSheet extends BladesSheet {
 
   abilityContextMenu = [
     {
-      name: game.i18n.localize("BITD.DeleteAbility"),
+      name: game.i18n.localize("RITS.DeleteAbility"),
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
         this.actor.deleteEmbeddedDocuments("Item", [element.data("ability-id")]);
@@ -186,7 +186,7 @@ export class BladesActorSheet extends BladesSheet {
 
   acquaintanceContextMenu = [
     {
-      name: game.i18n.localize("BITD.DeleteItem"),
+      name: game.i18n.localize("RITS.DeleteItem"),
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
         this.actor.removeAcquaintance(element.data("acquaintance"));
@@ -198,14 +198,14 @@ export class BladesActorSheet extends BladesSheet {
 
   abilityListContextMenu = [
     {
-      name: game.i18n.localize("BITD.AddNewAbility"),
+      name: game.i18n.localize("RITS.AddNewAbility"),
       icon: '<i class="fas fa-plus"></i>',
       callback: async (element) => {
         await this.addNewAbility();
       }
     },
     {
-      name: game.i18n.localize("BITD.AddExistingAbility"),
+      name: game.i18n.localize("RITS.AddExistingAbility"),
       icon: '<i class="fas fa-plus"></i>',
       callback: async (element) => {
         await this.generateAddExistingItemDialog("ability", this.actor);
@@ -255,10 +255,10 @@ export class BladesActorSheet extends BladesSheet {
     data.data.loadout = loadout;
 
     // Encumbrance Levels
-    let load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
-			"BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
-    let mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
-			"BITD.Heavy","BITD.Encumbered","BITD.OverMax"];
+    let load_level=["RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Normal","RITS.Normal","RITS.Heavy","RITS.Encumbered",
+			"RITS.Encumbered","RITS.Encumbered","RITS.OverMax"];
+    let mule_level=["RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Normal","RITS.Normal",
+			"RITS.Heavy","RITS.Encumbered","RITS.OverMax"];
     let mule_present=0;
 
     //Sanity Check
@@ -285,22 +285,22 @@ export class BladesActorSheet extends BladesSheet {
     }
 
     switch (data.data.selected_load_level){
-      case "BITD.Light":
+      case "RITS.Light":
         data.max_load = data.data.base_max_load + 3;
         break;
-      case "BITD.Normal":
+      case "RITS.Normal":
         data.max_load = data.data.base_max_load + 5;
         break;
-      case "BITD.Heavy":
+      case "RITS.Heavy":
         data.max_load = data.data.base_max_load + 6;
         break;
       default:
-        data.data.selected_load_level = "BITD.Normal";
+        data.data.selected_load_level = "RITS.Normal";
         data.max_load = data.base_max_load + 5;
         break;
     }
 
-    data.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
+    data.load_levels = {"RITS.Light":"RITS.Light", "RITS.Normal":"RITS.Normal", "RITS.Heavy":"RITS.Heavy"};
 
     //load up playbook options/data for playbook select
     // data.playbook_options = await game.packs.get("runners-in-the-shadows.class").getIndex();
@@ -603,7 +603,7 @@ export class BladesActorSheet extends BladesSheet {
 
       let unownedTraumasOptions;
       unownedTraumas.forEach((trauma)=>{
-        unownedTraumasOptions += `<option value=${trauma}>${game.i18n.localize("BITD.Trauma"+trauma)}</option>`;
+        unownedTraumasOptions += `<option value=${trauma}>${game.i18n.localize("RITS.Trauma"+trauma)}</option>`;
       });
       let unownedTraumasSelect = `
         <select id="${this.actor.id}-trauma-select">

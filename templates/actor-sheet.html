@@ -39,7 +39,7 @@
                 <div class="trauma-list count-{{ownedTraumas.length}}">
                 {{#if (gt data.trauma.list.length 0)}}
                 {{#each data.trauma.list as |trauma index|}}
-                  <div class="trauma-item" data-trauma="{{trauma}}">{{localize (concat "BITD.Trauma" (upper-first trauma))}}</div>
+                  <div class="trauma-item" data-trauma="{{trauma}}">{{localize (concat "RITS.Trauma" (upper-first trauma))}}</div>
                 {{/each}}
                 {{else}}
                   <em>{{localize data.trauma.name}}</em>
@@ -54,7 +54,7 @@
         </div>
       </section>
       <div class="name-alias bio">
-        <span class="name">{{{inline-editable-text "name" (localize "BITD.Name") actor.name actor._id this}}}</span> <span class="alias">&bull; "{{{inline-editable-text "data.alias" (localize "BITD.Alias") data.alias actor._id this}}}"</span>
+        <span class="name">{{{inline-editable-text "name" (localize "RITS.Name") actor.name actor._id this}}}</span> <span class="alias">&bull; "{{{inline-editable-text "data.alias" (localize "RITS.Alias") data.alias actor._id this}}}"</span>
       </div>
       <div class="heritage-background bio">
         {{{inline-editable-text "data.heritage" "Heritage" data.heritage actor._id this}}} &bull; {{{inline-editable-text "data.lineage" "Magical Lineage" data.lineage actor._id this}}} &bull; {{{inline-editable-text "data.background" "Background" data.background actor._id this}}} &bull; {{{inline-editable-text "data.background-details" "Background Details" data.background-details actor._id this}}} &bull; {{{inline-editable-text "data.vice" "Vice" data.vice actor._id this}}} &bull; {{{inline-editable-text "data.vice-purveyor" "Vice Purveyor" data.vice-purveyor actor._id this}}}
@@ -90,7 +90,7 @@
           <div class="playbook">
             <section class="abilities">
               <header class="full-bar">
-                <span class="context-abilities">{{localize "BITD.SpecialAbilities"}}</span>{{#if actor.flags.runners-in-the-shadows.allow-edit}}<a class="ability-add-popup add-button" data-item-type="ability" data-group-by="data.class"><i class="fas fa-plus"></i></a>{{/if}}
+                <span class="context-abilities">{{localize "RITS.SpecialAbilities"}}</span>{{#if actor.flags.runners-in-the-shadows.allow-edit}}<a class="ability-add-popup add-button" data-item-type="ability" data-group-by="data.class"><i class="fas fa-plus"></i></a>{{/if}}
                 <div class="stripe-tooth-body right">
                 {{#multiboxes data.experience}}
                   <input type="radio" id="{{actor._id}}-experience-0"
@@ -111,7 +111,7 @@
               </section>
             </section>
             <section class="playbook-items item-list">
-              <header class="full-bar flex-header context-items"><span>{{localize "BITD.Items"}}</span>{{#if actor.flags.runners-in-the-shadows.allow-edit}}<a class="item-list-add add-button" data-item-type="item" data-group-by="data.class"><i class="fas fa-plus"></i></a>{{/if}}</header>
+              <header class="full-bar flex-header context-items"><span>{{localize "RITS.Items"}}</span>{{#if actor.flags.runners-in-the-shadows.allow-edit}}<a class="item-list-add add-button" data-item-type="item" data-group-by="data.class"><i class="fas fa-plus"></i></a>{{/if}}</header>
               {{#each my_items as |item index|}}
                 {{#with ../actor as |actor|}}
                 <div class="item-block" data-item-id="{{item._id}}">
@@ -319,7 +319,7 @@
                     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                     <div class="item-name">{{item.name}}</div>
                 </div>
-                <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+                <a class="item-control item-delete" title="{{localize 'RITS.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
             </div>
         {{/each}}
     {{/if}}

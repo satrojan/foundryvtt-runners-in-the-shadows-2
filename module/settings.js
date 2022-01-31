@@ -3,7 +3,7 @@ export const registerSystemSettings = async function() {
   /**
    * Track the system version upon which point a migration was last applied
    */
-  await game.settings.register("bitd", "systemMigrationVersion", {
+  await game.settings.register("rits", "systemMigrationVersion", {
     name: "System Migration Version",
     scope: "world",
     config: false,
