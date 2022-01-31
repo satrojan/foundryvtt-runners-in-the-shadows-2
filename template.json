@@ -294,42 +294,42 @@
   },
   "cohort": {
     "templates": ["default"],
-    "cohort": ["Gang"],
+    "cohort": ["Team"],
     "scale": 0,
     "quality": 0,
     "cohort_list": {
-      "Gang": {
-        "label": "BITD.Gang"
+      "Team": {
+        "label": "BITD.Team"
       },
       "Expert": {
         "label": "BITD.Expert"
       }
     },
-    "gang_type": ["Technicians"],
-    "gang_type_list": {
+    "team_type": ["Technicians"],
+    "team_type_list": {
       "Operatives": {
-        "label": "BITD.GangTypeOperatives",
-        "description": "BITD.GangTypeOperativesDescription"
+        "label": "BITD.TeamTypeOperatives",
+        "description": "BITD.TeamTypeOperativesDescription"
       },
       "Technicians": {
-        "label": "BITD.GangTypeTechnicians",
-        "description": "BITD.GangTypeTechniciansDescription"
+        "label": "BITD.TeamTypeTechnicians",
+        "description": "BITD.TeamTypeTechniciansDescription"
       },
       "Thieves": {
-        "label": "BITD.GangTypeThieves",
-        "description": "BITD.GangTypeThievesDescription"
+        "label": "BITD.TeamTypeThieves",
+        "description": "BITD.TeamTypeThievesDescription"
       },
       "Thugs": {
-        "label": "BITD.GangTypeThugs",
-        "description": "BITD.GangTypeThugsDescription"
+        "label": "BITD.TeamTypeThugs",
+        "description": "BITD.TeamTypeThugsDescription"
       },
       "Transporters": {
-        "label": "BITD.GangTypeTransporters",
-        "description": "BITD.GangTypeTransportersDescription"
+        "label": "BITD.TeamTypeTransporters",
+        "description": "BITD.TeamTypeTransportersDescription"
       },
       "Weirdos": {
-        "label": "BITD.GangTypeWeirdos",
-        "description": "BITD.GangTypeWeirdosDescription"
+        "label": "BITD.TeamTypeWeirdos",
+        "description": "BITD.TeamTypeWeirdosDescription"
       }
     },
     "expert_type": "",

@@ -660,7 +660,7 @@
 .runners-in-the-shadows.crew.sheet .edgeflaw input:checked + label {
   color: red;
 }
-.runners-in-the-shadows.crew.sheet #gang-expert-type-selector #gang-type-boxes {
+.runners-in-the-shadows.crew.sheet #team-expert-type-selector #team-type-boxes {
   flex-wrap: wrap;
 }
 .runners-in-the-shadows.crew.sheet .cohorts {

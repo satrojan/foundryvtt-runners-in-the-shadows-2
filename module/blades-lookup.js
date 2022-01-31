@@ -15,11 +15,11 @@ export class BladesLookup {
     },
     {
       aliases: ["FLIPPED"],
-      details: "Contact, patron, client, or group of customers is loyal to another gang now."
+      details: "Contact, patron, client, or group of customers is loyal to another team now."
     },
     {
-      aliases: ["GANG TROUBLE"],
-      details: "Gang or cohort causes trouble. Lose REP = TIER +1, make an example of one of the gang members, or face reprisals."
+      aliases: ["TEAM TROUBLE"],
+      details: "Team or cohort causes trouble. Lose REP = TIER +1, make an example of one of the team members, or face reprisals."
     },
     {
       aliases: ["INTERROGATION"],

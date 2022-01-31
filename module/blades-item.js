@@ -91,7 +91,7 @@ export class BladesItem extends Item {
     // Adds Scale and Quality
     if (this.actor) {
       switch (data.cohort[0]) {
-        case "Gang":
+        case "Team":
           scale = parseInt(this.actor.data.data.tier[0]);
           quality = parseInt(this.actor.data.data.tier[0]);
           break;
