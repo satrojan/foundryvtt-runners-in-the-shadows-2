@@ -11,7 +11,7 @@
 
     <div class="label-stripe">{{localize "BITD.Information"}}</div>
 
-    <div>{{{localize "BITD.AddAdditionalTypeOfGangText"}}}</div>
+    <div>{{{localize "BITD.AddAdditionalTypeOfTeamText"}}}</div>
   </section>
 
   <section class="flex-vertical flex">
@@ -28,20 +28,20 @@
     </div>
   </section>
 
-  <section id="gang-expert-type-selector" class="flex-vertical flex">
-    {{#if (eq data.cohort "Gang")}}
+  <section id="team-expert-type-selector" class="flex-vertical flex">
+    {{#if (eq data.cohort "Team")}}
 
-      <div class="label-stripe">{{localize "BITD.GangType"}}</div>
-      <div id="gang-type-boxes" class="flex-horizontal">
+      <div class="label-stripe">{{localize "BITD.TeamType"}}</div>
+      <div id="team-type-boxes" class="flex-horizontal">
 
-        <select name="data.gang_type" multiple>
-          {{selectOptionsWithLabel data.gang_type_list selected=data.gang_type localize=true}}
+        <select name="data.team_type" multiple>
+          {{selectOptionsWithLabel data.team_type_list selected=data.team_type localize=true}}
         </select>
 
       </div>
-      <div id="selected-gang-description" class="description">
-        {{#each data.gang_type as |gang_type key|}}
-          {{#with (lookup ../data.gang_type_list gang_type)}}
+      <div id="selected-team-description" class="description">
+        {{#each data.team_type as |team_type key|}}
+          {{#with (lookup ../data.team_type_list team_type)}}
             {{localize description}}
           {{/with}}
         {{/each}}

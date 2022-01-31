@@ -28,9 +28,46 @@ BITD.SlyFriends (Snake)
 BITD.DeadlyFriends (Trigger)
 BITD.StrangeFriends (Adept, Mage, Techno)
 
+Classes:
+- (C)  Cutter
+- (G)  Ghost
+- (H)  Hound
+- (Hu) Hull
+- (Le) Leech
+- (Lu) Lurk
+- (Sl) Slide
+- (Sp) Spider
+- (V)  Vampire
+- (W)  Whisper
+
+Crew Types:
+- (A)  Assassins - No Change
+- (B)  Bravos - (M) Mercs
+- (C)  Cult - No Change
+- (H)  Hawkers - Dealers (D)
+- (Sh) Shadows - (S) Shadows
+- (Sm) Smugglers - (Co) Couriers
+- Radicals
+
+Team Types:
+Adepts - Technicians
+Rooks - Operatives
+Rovers - Transporters
+Skulks - Thieves
+Thugs
+(New) - Weirdos
+
 - Create new Class under Items->Classes
 - Create NPCs under Actors->NPCs
 - Create Items under Items->Items
+
+Faith: You’re dedicated to an unseen power, mentor spirit, ancestor, etc.
+Gambling: You crave games of chance, betting on sporting events, etc.
+Luxury: Expensive and/or ostentatious displays of opulence.
+Obligation: You’re devoted to a tradition, a family, a cause, a charity, etc.
+Pleasure: Gratification from lovers, food or drink, performance, art, video games, etc.
+Stupor: You seek oblivion in the abuse of drugs, drinking to excess, getting beaten to a pulp in mosh pits, BTL experiences, etc.
+Weird: You experiment with mystical substances, consort with tormented spirits, interface with rogue AI, observe strange rituals, etc.
 
 1/10:
 - Initial rename of all instances of blades-in-the-dark to runners-in-the-shadows
@@ -64,13 +101,14 @@ BITD.StrangeFriends (Adept, Mage, Techno)
 1/22
 Use cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 47 to generate 47 IDs.  Use VSCode (shift+alt+i -> home) and paste them in, followed by :
 
-- MedSled
-- Kingston Council
-- The Judges
-Caribbean Public Utilities
-Occult Task Force
-British Consulate
-Native American Consulate
-Citizens on Patrol
-Baccarat
-=======
+1/27
+- Updated crew types
+
+1/28 
+- Updated crew abilities, paths for crew turfs
+
+1/30-31
+- Updated crew upgrades
+- Updated gang types 
+- Updated vices
+- Updated backgrounds

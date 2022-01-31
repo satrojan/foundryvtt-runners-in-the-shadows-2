@@ -294,39 +294,42 @@
   },
   "cohort": {
     "templates": ["default"],
-    "cohort": ["Gang"],
+    "cohort": ["Team"],
     "scale": 0,
     "quality": 0,
     "cohort_list": {
-      "Gang": {
-        "label": "BITD.Gang"
+      "Team": {
+        "label": "BITD.Team"
       },
       "Expert": {
         "label": "BITD.Expert"
       }
     },
-    "gang_type": ["Adepts"],
-    "gang_type_list": {
-
-      "Adepts": {
-        "label": "BITD.GangTypeAdepts",
-        "description": "BITD.GangTypeAdeptsDescription"
+    "team_type": ["Technicians"],
+    "team_type_list": {
+      "Operatives": {
+        "label": "BITD.TeamTypeOperatives",
+        "description": "BITD.TeamTypeOperativesDescription"
       },
-      "Rooks": {
-        "label": "BITD.GangTypeRooks",
-        "description": "BITD.GangTypeRooksDescription"
+      "Technicians": {
+        "label": "BITD.TeamTypeTechnicians",
+        "description": "BITD.TeamTypeTechniciansDescription"
       },
-      "Rovers": {
-        "label": "BITD.GangTypeRovers",
-        "description": "BITD.GangTypeRoversDescription"
-      },
-      "Skulks": {
-        "label": "BITD.GangTypeSkulks",
-        "description": "BITD.GangTypeSkulksDescription"
+      "Thieves": {
+        "label": "BITD.TeamTypeThieves",
+        "description": "BITD.TeamTypeThievesDescription"
       },
       "Thugs": {
-        "label": "BITD.GangTypeThugs",
-        "description": "BITD.GangTypeThugsDescription"
+        "label": "BITD.TeamTypeThugs",
+        "description": "BITD.TeamTypeThugsDescription"
+      },
+      "Transporters": {
+        "label": "BITD.TeamTypeTransporters",
+        "description": "BITD.TeamTypeTransportersDescription"
+      },
+      "Weirdos": {
+        "label": "BITD.TeamTypeWeirdos",
+        "description": "BITD.TeamTypeWeirdosDescription"
       }
     },
     "expert_type": "",
@@ -465,7 +468,7 @@
         "connects": []
       },
       "8": {
-        "name": "BITD.Lair",
+        "name": "BITD.SafeHouse",
         "value": 1,
         "description": "",
         "connects": []

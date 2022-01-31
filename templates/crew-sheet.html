@@ -30,7 +30,7 @@
 
     <div class="grow-two flex-vertical">
       <div id="lair">
-        <label for="crew-lair">{{localize "BITD.Lair"}}</label>
+        <label for="crew-lair">{{localize "BITD.SafeHouse"}}</label>
         <input type="text" id="crew-lair" name="data.lair" value="{{data.lair}}">
       </div>
 
@@ -75,7 +75,7 @@
         {{> "systems/runners-in-the-shadows/templates/parts/radiotoggles.html" count=12 actor=../actor field="data.reputation" name="reputation" currentval=../data.reputation }}
       {{/repturf}}
       {{/multiboxes}}
-      <div class="gray-label">{{localize "BITD.Turf"}}</div>
+      <div class="gray-label">{{localize "BITD.Fixer"}}</div>
     </div>
 
     {{!-- Nuyen --}}
@@ -148,7 +148,7 @@
         {{/each}}
       </div>
       <nav class="tabs flex-horizontal">
-        <a class="item" data-tab="turfs">{{localize "BITD.Turfs"}}</a>
+        <a class="item" data-tab="turfs">{{localize "BITD.Claims"}}</a>
         <a class="item" data-tab="upgrades">{{localize "BITD.Upgrades"}}</a>
         <a class="item" data-tab="abilities">{{localize "BITD.Abilities"}}</a>
         <a class="item" data-tab="cohorts">{{localize "BITD.Cohorts"}}</a>
@@ -187,10 +187,10 @@
   {{!-- Tabs --}}
   <section class="tab-content flex">
 
-    {{!-- Turfs --}}
+    {{!-- Claims --}}
     <div class="tab" data-tab="turfs">
       <div class="label-stripe">
-        <p><label>{{localize "BITD.Turfs"}}</label></p>
+        <p><label>{{localize "BITD.Claims"}}</label></p>
       </div>
       {{#each actor.items as |item id|}}
       {{#if (eq item.type "crew_type")}}
