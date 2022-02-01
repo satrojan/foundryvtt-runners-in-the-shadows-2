@@ -131,6 +131,21 @@
               "value": 0
             }
           }
+        },
+        "mystic": {
+          "exp": 0,
+          "exp_max": 0,
+          "label": "RITS.SkillsMystic",
+          "skills": {
+            "assense": {
+              "label": "RITS.SkillsAssense",
+              "value": 0
+            },
+            "attune": {
+              "label": "RITS.SkillsAttune",
+              "value": 0
+            }
+          }
         }
     }
   },

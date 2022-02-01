@@ -218,6 +218,11 @@
   "RITS.SkillsConsort": "Consort",
   "RITS.SkillsInfluence": "Influence",
 
+  "RITS.SkillsMystic": "Mystic",
+  "RITS.SkillsMysticShort": "Mystic",
+  "RITS.SkillsAssense": "Assense",
+  "RITS.SkillsAttune": "Attune",
+
   "RITS.AddAbility": "Add Ability",
   "RITS.AddExistingAbility": "Add Existing Ability",
   "RITS.SelectToAddAbility": "Select abilities to add",
