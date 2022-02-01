@@ -3,7 +3,7 @@
  * @return {Promise}      A Promise which resolves once the migration is completed
  */
 export const migrateWorld = async function() {
-  ui.notifications.info(`Applying BITD Actors migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
+  ui.notifications.info(`Applying RITS Actors migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
 
   // Migrate World Actors
   for ( let a of game.actors.contents ) {
@@ -48,8 +48,8 @@ export const migrateWorld = async function() {
   }
 
   // Set the migration as complete
-  game.settings.set("bitd", "systemMigrationVersion", game.system.data.version);
-  ui.notifications.info(`BITD System Migration to version ${game.system.data.version} completed!`, {permanent: true});
+  game.settings.set("rits", "systemMigrationVersion", game.system.data.version);
+  ui.notifications.info(`RITS System Migration to version ${game.system.data.version} completed!`, {permanent: true});
 };
 
 
@@ -117,8 +117,8 @@ async function _migrateActor(actor) {
     updateData[`data.edge.value`] = actor.data.data.edge;
     updateData[`data.edge.max`] = 9;
     updateData[`data.edge.max_default`] = 9;
-    updateData[`data.edge.name_default`] = "BITD.Edge";
-    updateData[`data.edge.name`] = "BITD.Edge";
+    updateData[`data.edge.name_default`] = "RITS.Edge";
+    updateData[`data.edge.name`] = "RITS.Edge";
   }
 
   // Migrate Trauma to Array
@@ -127,8 +127,8 @@ async function _migrateActor(actor) {
     updateData[`data.trauma.value`] = [actor.data.traumas.length];
     updateData[`data.trauma.max`] = 4;
     updateData[`data.trauma.max_default`] = 4;
-    updateData[`data.trauma.name_default`] = "BITD.Trauma";
-    updateData[`data.trauma.name`] = "BITD.Trauma";
+    updateData[`data.trauma.name_default`] = "RITS.Trauma";
+    updateData[`data.trauma.name`] = "RITS.Trauma";
   }
 
   // Migrate character playbook

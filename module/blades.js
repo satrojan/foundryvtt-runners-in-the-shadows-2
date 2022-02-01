@@ -347,7 +347,7 @@ Hooks.once("init", async function() {
 Hooks.once("ready", function() {
 
   // Determine whether a system migration is required
-  const currentVersion = game.settings.get("bitd", "systemMigrationVersion");
+  const currentVersion = game.settings.get("rits", "systemMigrationVersion");
   const NEEDS_MIGRATION_VERSION = "3.5.1";
 
   // let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null);

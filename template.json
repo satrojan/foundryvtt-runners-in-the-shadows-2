@@ -12,20 +12,20 @@
     "vice-purveyor": "",
     "playbook": "",
     "acquaintances": [],
-    "acquaintances_label": "BITD.Acquaintances",
+    "acquaintances_label": "RITS.Acquaintances",
     "edge": {
       "value": [0],
       "max": 9,
       "max_default": 9,
-      "name_default": "BITD.Edge",
-      "name": "BITD.Edge"
+      "name_default": "RITS.Edge",
+      "name": "RITS.Edge"
     },
     "trauma": {
       "max": 4,
       "max_default": 4,
       "value": [0],
-      "name": "BITD.Trauma",
-      "name_default": "BITD.Trauma",
+      "name": "RITS.Trauma",
+      "name_default": "RITS.Trauma",
       "options": ["cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious"],
       "list": []
     },
@@ -64,22 +64,22 @@
         "intuition": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsIntuition",
+          "label": "RITS.SkillsIntuition",
           "skills": {
             "engineer": {
-              "label": "BITD.SkillsEngineer",
+              "label": "RITS.SkillsEngineer",
               "value": 0
             },
             "interface": {
-              "label": "BITD.SkillsInterface",
+              "label": "RITS.SkillsInterface",
               "value": 0
             },
             "stalk": {
-              "label": "BITD.SkillsStalk",
+              "label": "RITS.SkillsStalk",
               "value": 0
             },
             "survey": {
-              "label": "BITD.SkillsSurvey",
+              "label": "RITS.SkillsSurvey",
               "value": 0
             }
           }
@@ -87,22 +87,22 @@
         "body": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsBody",
+          "label": "RITS.SkillsBody",
           "skills": {
             "fight": {
-              "label": "BITD.SkillsFight",
+              "label": "RITS.SkillsFight",
               "value": 0
             },
             "finesse": {
-              "label": "BITD.SkillsFinesse",
+              "label": "RITS.SkillsFinesse",
               "value": 0
             },
             "prowl": {
-              "label": "BITD.SkillsProwl",
+              "label": "RITS.SkillsProwl",
               "value": 0
             },
             "wreck": {
-              "label": "BITD.SkillsWreck",
+              "label": "RITS.SkillsWreck",
               "value": 0
             }
           }
@@ -110,22 +110,22 @@
         "willpower": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsWillpower",
+          "label": "RITS.SkillsWillpower",
           "skills": {
             "command": {
-              "label": "BITD.SkillsCommand",
+              "label": "RITS.SkillsCommand",
               "value": 0
             },
             "consort": {
-              "label": "BITD.SkillsConsort",
+              "label": "RITS.SkillsConsort",
               "value": 0
             },
             "influence": {
-              "label": "BITD.SkillsInfluence",
+              "label": "RITS.SkillsInfluence",
               "value": 0
             },
             "study": {
-              "label": "BITD.SkillsStudy",
+              "label": "RITS.SkillsStudy",
               "value": 0
             }
           }
@@ -242,15 +242,15 @@
         "value": [1],
         "max": 2,
         "max_default": 2,
-        "name_default": "BITD.Hold",
-        "name": "BITD.Hold"
+        "name_default": "RITS.Hold",
+        "name": "RITS.Hold"
       },
       "status": {
         "value": [4],
         "max": 7,
         "max_default": 7,
-        "name_default": "BITD.Status",
-        "name": "BITD.Status"
+        "name_default": "RITS.Status",
+        "name": "RITS.Status"
       }
     },
     "item": {
@@ -299,37 +299,37 @@
     "quality": 0,
     "cohort_list": {
       "Team": {
-        "label": "BITD.Team"
+        "label": "RITS.Team"
       },
       "Expert": {
-        "label": "BITD.Expert"
+        "label": "RITS.Expert"
       }
     },
     "team_type": ["Technicians"],
     "team_type_list": {
       "Operatives": {
-        "label": "BITD.TeamTypeOperatives",
-        "description": "BITD.TeamTypeOperativesDescription"
+        "label": "RITS.TeamTypeOperatives",
+        "description": "RITS.TeamTypeOperativesDescription"
       },
       "Technicians": {
-        "label": "BITD.TeamTypeTechnicians",
-        "description": "BITD.TeamTypeTechniciansDescription"
+        "label": "RITS.TeamTypeTechnicians",
+        "description": "RITS.TeamTypeTechniciansDescription"
       },
       "Thieves": {
-        "label": "BITD.TeamTypeThieves",
-        "description": "BITD.TeamTypeThievesDescription"
+        "label": "RITS.TeamTypeThieves",
+        "description": "RITS.TeamTypeThievesDescription"
       },
       "Thugs": {
-        "label": "BITD.TeamTypeThugs",
-        "description": "BITD.TeamTypeThugsDescription"
+        "label": "RITS.TeamTypeThugs",
+        "description": "RITS.TeamTypeThugsDescription"
       },
       "Transporters": {
-        "label": "BITD.TeamTypeTransporters",
-        "description": "BITD.TeamTypeTransportersDescription"
+        "label": "RITS.TeamTypeTransporters",
+        "description": "RITS.TeamTypeTransportersDescription"
       },
       "Weirdos": {
-        "label": "BITD.TeamTypeWeirdos",
-        "description": "BITD.TeamTypeWeirdosDescription"
+        "label": "RITS.TeamTypeWeirdos",
+        "description": "RITS.TeamTypeWeirdosDescription"
       }
     },
     "expert_type": "",
@@ -338,74 +338,74 @@
     "edges": [],
     "edges_list": {
       "Fearsome": {
-        "label": "BITD.EdgesFearsome",
-        "description": "BITD.EdgesFearsomeDescription",
+        "label": "RITS.EdgesFearsome",
+        "description": "RITS.EdgesFearsomeDescription",
         "selected": false
       },
       "Independent": {
-        "label": "BITD.EdgesIndependent",
-        "description": "BITD.EdgesIndependentDescription",
+        "label": "RITS.EdgesIndependent",
+        "description": "RITS.EdgesIndependentDescription",
         "selected": false
       },
       "Loyal": {
-        "label": "BITD.EdgesLoyal",
-        "description": "BITD.EdgesLoyalDescription",
+        "label": "RITS.EdgesLoyal",
+        "description": "RITS.EdgesLoyalDescription",
         "selected": false
       },
       "Tenacious": {
-        "label": "BITD.EdgesTenacious",
-        "description": "BITD.EdgesTenaciousDescription",
+        "label": "RITS.EdgesTenacious",
+        "description": "RITS.EdgesTenaciousDescription",
         "selected": false
       }
     },
     "flaws": [],
     "flaws_list": {
       "Principled": {
-        "label": "BITD.FlawsPrincipled",
-        "description": "BITD.FlawsPrincipledDescription",
+        "label": "RITS.FlawsPrincipled",
+        "description": "RITS.FlawsPrincipledDescription",
         "selected": false
       },
       "Savage": {
-        "label": "BITD.FlawsSavage",
-        "description": "BITD.FlawsSavageDescription",
+        "label": "RITS.FlawsSavage",
+        "description": "RITS.FlawsSavageDescription",
         "selected": false
       },
       "Unreliable": {
-        "label": "BITD.FlawsUnreliable",
-        "description": "BITD.FlawsUnreliableDescription",
+        "label": "RITS.FlawsUnreliable",
+        "description": "RITS.FlawsUnreliableDescription",
         "selected": false
       },
       "Wild": {
-        "label": "BITD.FlawsWild",
-        "description": "BITD.FlawsWildDescription",
+        "label": "RITS.FlawsWild",
+        "description": "RITS.FlawsWildDescription",
         "selected": false
       }
     },
     "harm": ["No"],
     "harm_list": {
       "No": {
-        "label": "BITD.HarmNoHarm",
-        "description": "BITD.HarmNoHarmDescription",
+        "label": "RITS.HarmNoHarm",
+        "description": "RITS.HarmNoHarmDescription",
         "value": 0
       },
       "Weakened": {
-        "label": "BITD.HarmWeakened",
-        "description": "BITD.HarmWeakenedDescription",
+        "label": "RITS.HarmWeakened",
+        "description": "RITS.HarmWeakenedDescription",
         "value": 1
       },
       "Impaired": {
-        "label": "BITD.HarmImpaired",
-        "description": "BITD.HarmImpairedDescription",
+        "label": "RITS.HarmImpaired",
+        "description": "RITS.HarmImpairedDescription",
         "value": 2
       },
       "Broken": {
-        "label": "BITD.HarmBroken",
-        "description": "BITD.HarmBrokenDescription",
+        "label": "RITS.HarmBroken",
+        "description": "RITS.HarmBrokenDescription",
         "value": 3
       },
       "Dead": {
-        "label": "BITD.HarmDead",
-        "description": "BITD.HarmDeadDescription",
+        "label": "RITS.HarmDead",
+        "description": "RITS.HarmDeadDescription",
         "value": 4
       }
     },
@@ -468,7 +468,7 @@
         "connects": []
       },
       "8": {
-        "name": "BITD.SafeHouse",
+        "name": "RITS.SafeHouse",
         "value": 1,
         "description": "",
         "connects": []

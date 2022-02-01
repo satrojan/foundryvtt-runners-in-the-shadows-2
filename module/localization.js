@@ -3,7 +3,7 @@
  * @return {Promise}      A Promise which resolves once the check is completed
  */
 export const checkLocalizations = async function() {
-  // ui.notifications.info(`Applying BITD Actors migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
+  // ui.notifications.info(`Applying RITS Actors migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
   let localizations = [
     "de.json",
     "en.json",
@@ -28,7 +28,7 @@ export const checkLocalizations = async function() {
   for(const language in locTerms){
     missing[language] = {};
     for (const term in allTerms){
-      if(!(term in locTerms[language]) && term.startsWith("BITD.")){
+      if(!(term in locTerms[language]) && term.startsWith("RITS.")){
         missing[language][term] = "";
       }
     }
