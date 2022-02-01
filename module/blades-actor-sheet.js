@@ -16,7 +16,7 @@ export class BladesActorSheet extends BladesSheet {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["runners-in-the-shadows", "sheet", "actor", "pc"],
   	  template: "systems/runners-in-the-shadows/templates/actor-sheet.html",
-      width: 800,
+      width: 860,
       height: 1200,
       tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "playbook"}]
     });
