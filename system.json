@@ -1,12 +1,22 @@
 {
-  "name": "runners-in-the-shadows",
+  "id": "runners-in-the-shadows",
   "title": "Runners in the Shadows",
   "description": "Runners in the Shadows game system.",
   "version": "0.0.3",
-  "minimumCoreVersion": "0.8.5",
-  "compatibleCoreVersion": "0.9.0",
-  "templateVersion": 1,
-  "author": "apoapsis138 & mrdionysus",
+  "compatibility": {
+    "minimum": 11,
+    "verified": "12.324"
+  },
+  "url": "https://github.com/satrojan/foundryvtt-runners-in-the-shadows/",
+  "manifest": "https://raw.githubusercontent.com/satrojan/foundryvtt-runners-in-the-shadows/master/system.json",
+  "download": "https://github.com/satrojan/foundryvtt-runners-in-the-shadows/archive/refs/heads/dev.zip",
+  "authors": [
+    { "name": "megastruktur" },
+    { "name": "drewg13" },
+    { "name": "justinross" },
+    { "name": "Dez384" },
+    { "name": "satrojan" }
+  ],
   "esmodules": [
     "module/blades.js"
   ],
@@ -43,100 +53,115 @@
       "path": "lang/de.json"
     }
   ],
-  "url": "https://github.com/MrDionysus/foundryvtt-runners-in-the-shadows/",
-  "manifest": "https://raw.githubusercontent.com/MrDionysus/foundryvtt-runners-in-the-shadows/main/system.json",
-  "download": "https://github.com/MrDionysus/foundryvtt-runners-in-the-shadows/archive/refs/heads/main.zip",
   "packs": [
     {
       "name": "class",
       "label": "Classes",
       "system": "runners-in-the-shadows",
       "path": "./packs/classes.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "heritage",
       "label": "Heritages",
       "system": "runners-in-the-shadows",
       "path": "./packs/heritages.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "lineage",
       "label": "Magical Lineages",
       "system": "runners-in-the-shadows",
       "path": "./packs/magical_lineages.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "vice",
       "label": "Vices",
       "system": "runners-in-the-shadows",
       "path": "./packs/vices.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "background",
       "label": "Backgrounds",
       "system": "runners-in-the-shadows",
       "path": "./packs/backgrounds.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "item",
       "label": "Items",
       "system": "runners-in-the-shadows",
       "path": "./packs/items.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "ability",
       "label": "Abilities",
       "system": "runners-in-the-shadows",
       "path": "./packs/abilities.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "crew_reputation",
       "label": "Crew Reputation",
       "system": "runners-in-the-shadows",
       "path": "./packs/crew_reputation.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "crew_type",
       "label": "Crew Types",
       "system": "runners-in-the-shadows",
       "path": "./packs/crew_types.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "crew_upgrade",
       "label": "Crew Upgrades",
       "system": "runners-in-the-shadows",
       "path": "./packs/crew_upgrades.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "crew_ability",
       "label": "Crew Abilities",
       "system": "runners-in-the-shadows",
       "path": "./packs/crew_abilities.db",
-      "entity": "Item"
+      "type": "Item"
     },
 	{
       "name": "faction",
       "label": "Factions",
       "system": "runners-in-the-shadows",
       "path": "./packs/factions.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "npc",
       "label": "NPCs",
       "system": "runners-in-the-shadows",
       "path": "./packs/npcs.db",
-      "entity": "Actor"
+      "type": "Actor"
     }
+  ],
+    "packFolders": [
+    {
+      "name": "Character Options",
+      "sorting": "m",
+      "packs": ["class", "ability", "item", "background", "heritage", "vice"]
+	},
+    {
+      "name": "Crew Options",
+      "sorting": "m",
+      "packs": ["crew_type", "crew_ability", "crew_upgrade", "crew_reputation"]
+	},
+    {
+      "name": "Factions & NPCs",
+      "sorting": "m",
+      "packs": ["faction", "npc"]
+	}
   ]
+}
 }
