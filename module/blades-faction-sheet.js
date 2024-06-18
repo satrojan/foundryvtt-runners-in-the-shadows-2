@@ -9,7 +9,7 @@ export class BladesFactionSheet extends BladesSheet {
   /** @override */
 	static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
-  	  classes: ["runners-in-the-shadows", "sheet", "actor", "faction"],
+  	  classes: ["runners-in-the-shadows", "sheet", "actor"],
   	  template: "systems/runners-in-the-shadows/templates/faction-sheet.html",
       width: 900,
       height: 'auto',
@@ -20,13 +20,13 @@ export class BladesFactionSheet extends BladesSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData(options) {
-    const superData = super.getData( options );
-    const sheetData = superData.data;
-    sheetData.owner = superData.owner;
-    sheetData.editable = superData.editable;
-    sheetData.isGM = game.user.isGM;
-    return sheetData;
+  getData() {
+    const data = super.getData();
+    data.editable = this.options.editable;
+    const actorData = data.data;
+    data.actor = actorData;
+    data.data = actorData.data;
+    return data;
   }
 
   /* -------------------------------------------- */
@@ -44,13 +44,13 @@ export class BladesFactionSheet extends BladesSheet {
       const item = this.actor.items.get(element.data("itemId"));
       item.sheet.render(true);
     });
-
+	
     // Delete Inventory Item
     html.find('.item-delete').click( async ev => {
       const element = $(ev.currentTarget).parents(".item");
       await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
       element.slideUp(200, () => this.render(false));
     });
-
+	
 	}
 }

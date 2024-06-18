@@ -9,8 +9,12 @@ export const preloadHandlebarsTemplates = async function() {
   const templatePaths = [
 
     // Actor Sheet Partials
-    "systems/runners-in-the-shadows/templates/parts/coins.html",
+    "systems/runners-in-the-shadows/templates/parts/nuyen.html",
     "systems/runners-in-the-shadows/templates/parts/attributes.html",
+    "systems/runners-in-the-shadows/templates/parts/harm.html",
+    "systems/runners-in-the-shadows/templates/parts/load.html",
+    "systems/runners-in-the-shadows/templates/parts/radiotoggles.html",
+    "systems/runners-in-the-shadows/templates/parts/ability.html",
     "systems/runners-in-the-shadows/templates/parts/turf-list.html",
     "systems/runners-in-the-shadows/templates/parts/cohort-block.html",
     "systems/runners-in-the-shadows/templates/parts/factions.html",
