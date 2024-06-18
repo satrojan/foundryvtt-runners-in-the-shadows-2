@@ -18,7 +18,7 @@ export class BladesActiveEffect extends ActiveEffect {
     if ( this.isSuppressed ) return null;
     //this allows for math and actor data references in the change values. Probably not necessary for
     // blades, but it was simple, and you never know what users will do. Probably ruin everything.
-    change.value = Roll.replaceFormulaData(change.value, actor.data);
+    change.value = Roll.replaceFormulaData(change.value, actor.system);
     try {
       change.value = Roll.safeEval(change.value).toString();
     } catch (e) {
@@ -42,16 +42,6 @@ export class BladesActiveEffect extends ActiveEffect {
    */
   determineSuppression() {
     this.isSuppressed = false;
-    if ( this.data.disabled || (this.parent.documentName !== "Actor") || this.parent.type !== "character" ) return;
-    const [parentType, parentId, documentType, documentId] = this.data.origin?.split(".") ?? [];
-    if ( (parentType !== "Actor") || (parentId !== this.parent.id) || (documentType !== "Item") ) return;
-    const item = this.parent.items.get(documentId);
-    if ( !item ) return;
-    const itemData = item.data;
-    // If an item is not equipped, or it is equipped but it requires attunement and is not attuned, then disable any
-    // Active Effects that might have originated from it.
-    //
-    this.isSuppressed = itemData.type !== "class" && itemData.data.equipped !== true && itemData.data.purchased !== true;
   }
 
 
@@ -68,8 +58,8 @@ export class BladesActiveEffect extends ActiveEffect {
     switch ( a.dataset.action ) {
       case "create":
         return owner.createEmbeddedDocuments("ActiveEffect", [{
-          label: "New Effect",
-          icon: "systems/runners-in-the-shadows/styles/assets/icons/Icon.3_13.png",
+          name: "New Effect",
+          img: "systems/runners-in-the-shadows/styles/assets/icons/Icon.3_13.png",
           origin: owner.uuid,
           "duration.rounds": selector.dataset.effectType === "temporary" ? 1 : undefined,
           disabled: selector.dataset.effectType === "inactive"
@@ -80,7 +70,7 @@ export class BladesActiveEffect extends ActiveEffect {
         console.log("delete effect");
         return effect.delete();
       case "toggle":
-        return effect.update({disabled: !effect.data.disabled});
+        return effect.update({disabled: !effect.disabled});
     }
   }
 
@@ -96,22 +86,22 @@ export class BladesActiveEffect extends ActiveEffect {
     const categories = {
       temporary: {
         type: "temporary",
-        label: "Temporary Effects",
+        name: "Temporary Effects",
         effects: []
       },
       passive: {
         type: "passive",
-        label: "Passive Effects",
+        name: "Passive Effects",
         effects: []
       },
       inactive: {
         type: "inactive",
-        label: "Inactive Effects",
+        name: "Inactive Effects",
         effects: []
       },
       suppressed: {
         type: "suppressed",
-        label: "Suppressed Effects",
+        name: "Suppressed Effects",
         effects: []
       }
 
@@ -119,9 +109,10 @@ export class BladesActiveEffect extends ActiveEffect {
 
     // Iterate over active effects, classifying them into categories
     for ( let e of effects ) {
-      e._getSourceName(); // Trigger a lookup for the source name
-      if ( e.isSuppressed ) categories.suppressed.effects.push(e);
-      else if ( e.data.disabled ) categories.inactive.effects.push(e);
+      //e._getSourceName(); // Trigger a lookup for the source name
+      e.origin;  //fixes deprecation of _getSourceName?
+	  if ( e.isSuppressed ) categories.suppressed.effects.push(e);
+      else if ( e.disabled ) categories.inactive.effects.push(e);
       else if ( e.isTemporary ) categories.temporary.effects.push(e);
       else categories.passive.effects.push(e);
     }

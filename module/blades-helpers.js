@@ -10,203 +10,20 @@ export class BladesHelpers {
    */
   static removeDuplicatedItemType(item_data, actor) {
     let dupe_list = [];
-    let distinct_types = ["crew_reputation", "class", "vice", "background", "heritage", "lineage", "crew_type"];
+    let distinct_types = ["crew_type", "crew_reputation", "class", "vice", "background", "heritage", "prison"];
     let allowed_types = ["item"];
     let should_be_distinct = distinct_types.includes(item_data.type);
     // If the Item has the exact same name - remove it from list.
     // Remove Duplicate items from the array.
     actor.items.forEach( i => {
-      let has_double = (item_data.type === i.data.type);
-      if ( ( ( i.name === item_data.name ) || ( should_be_distinct && has_double ) ) && !( allowed_types.includes( item_data.type ) ) && ( item_data.id !== i.id ) ) {
+      let has_double = (item_data.type === i.type);
+      if ( ( ( i.name === item_data.name ) || ( should_be_distinct && has_double ) ) && !( allowed_types.includes( item_data.type ) ) && ( item_data._id !== i.id ) ) {
         dupe_list.push (i.id);
       }
     });
 
     return dupe_list;
   }
-
-  static trimClassFromName(name){
-    return name.replace(/\([^)]*\)\ /, "");
-  }
-
-  static capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
-  /**
-   * Compares a list of items to those already present on the provided actor and returns a deduped array
-   *
-   * @param {Object} item_data
-   * @param {Document} actor
-   * @returns {Array}
-   *
-   */
-  static filterItemsForDuplicatesOnActor(item_list, type, actor, check_trimmed_name = false) {
-    let deduped_list = [];
-    let existing_items = actor.items.filter(i=> i.type === type);
-
-    // If the Item has the exact same name - remove it from list.
-    // Remove Duplicate items from the array.
-    deduped_list = item_list.filter(new_item => {
-      if(check_trimmed_name){
-        return !existing_items.some(existing => this.trimClassFromName(new_item.name) === this.trimClassFromName(existing.name));
-      }
-      else{
-        return !existing_items.some(existing => new_item.name === existing.name);
-      }
-    })
-
-    return deduped_list;
-  }
-
-  /**
-   * Returns a list of owned items with the same type as the passed item
-   *
-   * @param {Object} item_data the item being added
-   * @param {Document} actor
-   * @returns {Array}
-   *
-   */
-  static getExistingItemsByType(item_data, actor) {
-    let ownedItemsOfSameType = actor.items.filter(i=> i.type === item_data.type);
-    return ownedItemsOfSameType;
-  }
-
-  static groupItemsByClass(item_list, generic_last = true){
-    let grouped_items = {};
-    let generics = [];
-    for (const item of item_list) {
-      let itemclass= getProperty(item, "data.data.class");
-      if(itemclass === ""){
-        generics.push(item);
-      }
-      else{
-        if(!(itemclass in grouped_items) || !Array.isArray(grouped_items[itemclass])){
-          grouped_items[itemclass] = [];
-        }
-        grouped_items[itemclass].push(item);
-      }
-    }
-    if(!generic_last && generics.length > 0){
-      grouped_items["Generic"] = generics;
-    }
-    let sorted_grouped_items = Object.keys(grouped_items).sort().reduce(
-      (obj, key) => {
-        obj[key] = grouped_items[key];
-        return obj;
-      },
-      {}
-    );
-    if(generic_last && generics.length > 0){
-      sorted_grouped_items["Generic"] = generics;
-    }
-    return sorted_grouped_items;
-  }
-
-  /**
-   * Add item modification if logic exists.
-   * @param {Object} item_data
-   * @param {Document} entity
-   */
-  static async callItemLogic(item_data, entity) {
-
-    if ('logic' in item_data.data && item_data.data.logic !== '') {
-      let logic = JSON.parse(item_data.data.logic);
-
-      // Should be an array to support multiple expressions
-      if (!Array.isArray(logic)) {
-        logic = [logic];
-      }
-
-      if (logic) {
-        let logic_update = { "_id": entity.id };
-        logic.forEach(expression => {
-
-          // Different logic behav. dep on operator.
-          switch (expression.operator) {
-
-            // Add when creating.
-            case "addition":
-              foundry.utils.mergeObject(
-                logic_update,
-                {[expression.attribute]: Number(BladesHelpers.getNestedProperty(entity, prefix + expression.attribute)) + expression.value},
-                {insertKeys: true}
-              );
-            break;
-
-            // Change name property.
-            case "attribute_change":
-              foundry.utils.mergeObject(
-                logic_update,
-                {[expression.attribute]: expression.value},
-                {insertKeys: true}
-              );
-            break;
-
-          }
-        });
-        await Actor.updateDocuments( logic_update );
-      }
-
-    }
-
-  }
-
-  /**
-   * Undo Item modifications when item is removed.
-   * @todo
-   *  - Remove all items and then Add them back to
-   *    sustain the logic mods
-   * @param {Object} item_data
-   * @param {Document} entity
-   */
-  // static async undoItemLogic(item_data, entity) {
-  //
-  //   if ('logic' in item_data.data && item_data.data.logic !== '') {
-  //     let logic = JSON.parse(item_data.data.logic)
-  //
-  //     // Should be an array to support multiple expressions
-  //     if (!Array.isArray(logic)) {
-  //       logic = [logic];
-  //     }
-  //
-  //     if (logic) {
-  //       let logic_update = { "_id": entity.id };
-  //       var entity_data = entity.data;
-  //
-  //       logic.forEach(expression => {
-  //         // Different logic behav. dep on operator.
-  //         switch (expression.operator) {
-  //
-  //           // Subtract when removing.
-  //           case "addition":
-  //             foundry.utils.mergeObject(
-  //               logic_update,
-  //               {[expression.attribute]: Number(BladesHelpers.getNestedProperty(entity, expression.attribute)) - expression.value},
-  //               {insertKeys: true}
-  //             );
-  //           break;
-  //
-  //           // Change name back to default.
-  //           case "attribute_change":
-  //             // Get the array path to take data.
-  //             let default_expression_attribute_path = expression.attribute + '_default';
-  //             let default_name = default_expression_attribute_path.split(".").reduce((o, i) => o[i], entity_data);
-  //
-  //             foundry.utils.mergeObject(
-  //               logic_update,
-  //               {[expression.attribute]: default_name},
-	// 		        	{insertKeys: true}
-  //             );
-  //
-  //           break;
-  //         }
-  //       });
-  //       await Actor.updateDocuments( logic_update );
-  //     }
-  //   }
-  //
-  // }
 
   /**
    * Get a nested dynamic attribute.
@@ -242,66 +59,26 @@ export class BladesHelpers {
    * @param {string} item_type
    * @param {Object} game
    */
-  static async getAllItemsByType(item_type) {
+  static async getAllItemsByType(item_type, game) {
 
     let list_of_items = [];
     let game_items = [];
     let compendium_items = [];
 
-    game_items = game.items.filter(e => e.type === item_type).map(e => {return e});
+    game_items = game.items.filter(e => e.type === item_type).map(e => {return e.toObject()});
 
     let pack = game.packs.find(e => e.metadata.name === item_type);
     let compendium_content = await pack.getDocuments();
-    compendium_items = compendium_content.map(e => {return e});
+    compendium_items = compendium_content.map(e => {return e.toObject()});
 
     list_of_items = game_items.concat(compendium_items);
     list_of_items.sort(function(a, b) {
-      let nameA = a.data.name.toUpperCase();
-      let nameB = b.data.name.toUpperCase();
+      let nameA = a.name.toUpperCase();
+      let nameB = b.name.toUpperCase();
       return nameA.localeCompare(nameB);
     });
     return list_of_items;
 
-  }
-
-  static async getSourcedItemsByType(item_type){
-    const populateFromCompendia = game.settings.get('runners-in-the-shadows','populateFromCompendia');
-    const populateFromWorld = game.settings.get('runners-in-the-shadows','populateFromWorld');
-    let limited_items;
-
-    if(populateFromCompendia && populateFromWorld){
-      limited_items = await this.getAllItemsByType(item_type);
-    }
-    else if(populateFromCompendia && !populateFromWorld){
-      limited_items = await game.packs.get("runners-in-the-shadows." + item_type).getDocuments();
-    }
-    else if(!populateFromCompendia && populateFromWorld){
-      if(item_type === "npc"){
-        limited_items = game.actors.filter(actor=> actor.type === item_type);
-      }
-      else{
-        limited_items = game.items.filter(item=>item.type === item_type);
-      }
-    }
-    else{
-      ui.notifications.error(`No playbook auto-population source has been selected in the system settings. Please choose at least one source.`, {permanent: true});
-    }
-    if(limited_items){
-      limited_items.sort(function(a, b) {
-        let nameA = a.name.toUpperCase();
-        let nameB = b.name.toUpperCase();
-        return nameA.localeCompare(nameB);
-      });
-    }
-
-    return limited_items;
-
-  }
-
-  static async getItemByType(item_type, item_id){
-    let game_items = await this.getAllItemsByType(item_type);
-    let item = game_items.find(item => item.id === item_id);
-    return item;
   }
 
   /* -------------------------------------------- */
@@ -314,7 +91,7 @@ export class BladesHelpers {
    */
   static getAttributeLabel(attribute_name) {
         let attribute_labels = {};
-        const attributes = game.system.model.Actor.character.attributes;
+        const attributes = game.model.Actor.character.attributes;
 
         for (const att_name in attributes) {
           attribute_labels[att_name] = attributes[att_name].label;
@@ -326,71 +103,67 @@ export class BladesHelpers {
 
         return attribute_labels[attribute_name];
   }
-  
-  /**
-   * Returns true if the attribute is an action
-   *
-   * @param {string} attribute_name 
-   * @returns {Boolean}
-   */
-  static isAttributeAction(attribute_name) {
-        const attributes = game.system.model.Actor.character.attributes;
-        
-        return !(attribute_name in attributes);
-  }
-
-  /* -------------------------------------------- */
 
   /**
-   * Return an object with base skills/actions for the given playbook name
+   * Returns the label for roll type.
    *
-   * @param {string} playbook_name 
-   * @returns {object}
+   * @param {string} roll_name
+   * @returns {string}
    */
-  static async getStartingAttributes(playbook_name) {
-    let empty_attributes = game.system.model.Actor.character.attributes;
-    //not sure what was getting linked rather than copied in empty_attributes, but the JSON hack below seems to fix the weirdness I was seeing
-    let attributes_to_return = deepClone(empty_attributes);
-    try{
-      let all_playbooks = await BladesHelpers.getSourcedItemsByType("class");
-      if(all_playbooks){
-        let selected_playbook_base_skills = all_playbooks.find(pb => pb.name == playbook_name).data.data.base_skills;
-        for(const [key, value] of Object.entries(empty_attributes)){
-          for(const [childKey, childValue] of Object.entries(value.skills)){
-            if(selected_playbook_base_skills[childKey]){
-              attributes_to_return[key].skills[childKey].value = selected_playbook_base_skills[childKey].toString();
-            }
-          }
+  static getRollLabel(roll_name) {
+    let attribute_labels = {};
+    const attributes = game.model.Actor.character.attributes;
+
+    for (const att_name in attributes) {
+      if (att_name == roll_name) {
+        return attributes[att_name].label;
+      }
+      for (const skill_name in attributes[att_name].skills) {
+        if (skill_name == roll_name) {
+          return attributes[att_name].skills[skill_name].label;
         }
       }
     }
-    catch (e) {
-      console.log("Error: ", e);
+
+    return roll_name;
+  }
+
+  /**
+   * Returns true if the attribute is an action
+   *
+   * @param {string} attribute_name
+   * @returns {Boolean}
+   */
+  static isAttributeAction(attribute_name) {
+    const attributes = game.model.Actor.character.attributes;
+
+    for (const att_name in attributes) {
+      for (const skill_name in attributes[att_name].skills) {
+        if (skill_name == attribute_name) {
+          return true;
+        }
+      }
     }
-    return attributes_to_return;
+
+    return false;
   }
 
-  static async getPlaybookName(id){
-    let playbook = await this.getItemByType("class", id);
-    return playbook.name;
+  /**
+   * Returns true if the attribute is an attribute
+   *
+   * @param {string} attribute_name
+   * @returns {Boolean}
+   */
+  static isAttributeAttribute(attribute_name) {
+    const attributes = game.model.Actor.character.attributes;
+
+    return (attribute_name in attributes);
   }
 
-  static async checkIfDefault(playbook_name, entity){
-    let custom = false;
-    switch(entity.type){
-      case "ability":
-        custom = playbook_name === entity.data.data.class;
-        break;
-      case "item":
-        custom = playbook_name === entity.data.data.class;
-        break;
-      case "npc":
-        custom = playbook_name === entity.data.data.associated_class;
-        break;
-    }
-    return custom;
+  /* -------------------------------------------- */
+  static getProperCase( name ) {
+    return name.charAt(0).toUpperCase() + name.substr(1).toLowerCase();
   }
-
   /**
    * Creates options for faction clocks.
    *
@@ -421,5 +194,89 @@ export class BladesHelpers {
     return text;
 
   }
+  // adds an NPC to the character as an acquaintance of neutral standing
+  static async addAcquaintance(actor, acq){
+    let current_acquaintances = actor.system.acquaintances;
+    let acquaintance = {
+      id : acq.id,
+      name : acq.name,
+      description_short : acq.system.description_short,
+      standing: "neutral"
+     };
+     let unique_id =  !current_acquaintances.some((oldAcq) => {
+       return oldAcq.id == acq.id;
+     });
+     if(unique_id){
+       await actor.update({system: {acquaintances : current_acquaintances.concat([acquaintance])}});
+     }
+     else{
+       ui.notifications.info("The dropped NPC is already an acquaintance of this character.");
+    }
+  }
+   static async removeAcquaintance(actor, acqId){
+    let current_acquaintances = actor.system.acquaintances;
+    let updated_acquaintances = current_acquaintances.filter(acq => acq._id !== acqId && acq.id !== acqId);
+	await actor.update({system: {acquaintances : updated_acquaintances}});
+  }
+
+  static async getAllItemsByType(item_type) {
+
+    let list_of_items = [];
+    let world_items = [];
+    let compendium_items = [];
+
+    if(item_type === "npc"){
+      world_items = game.actors.filter(e => e.type === item_type).map(e => {return e});
+    }
+    else{
+      world_items = game.items.filter(e => e.type === item_type).map(e => {return e});
+    }
+
+    let pack = game.packs.find(e => e.metadata.name === item_type);
+    let compendium_content = await pack.getDocuments();
+    compendium_items = compendium_content.map(e => {return e});
+
+    list_of_items = world_items.concat(compendium_items);
+    list_of_items.sort(function(a, b) {
+      let nameA = a.name.toUpperCase();
+      let nameB = b.name.toUpperCase();
+      return nameA.localeCompare(nameB);
+    });
+    return list_of_items;
+
+  }
+
+  static async getSourcedItemsByType(item_type){
+      const limited_items = await this.getAllItemsByType(item_type);
+    return limited_items;
+  }
+    static async getItemByType(item_type, item_id){
+    let game_items = await this.getAllItemsByType(item_type);
+    let item = game_items.find(item => item.id === item_id);
+    return item;
+  }
+
+  static async getPlaybookAcquaintances(actor_type, selected_playbook){
+    let all_acquaintances = await this.getSourcedItemsByType('npc');
+	let playbook_acquaintances = [];
+	if (actor_type == "character") {
+		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_class === selected_playbook);
+	} else if (actor_type == "crew") {
+		playbook_acquaintances = all_acquaintances.filter(i => i.system.associated_crew_type === selected_playbook);
+	}
+	return playbook_acquaintances;
+
+  }
+
+  	static async import_pb_contacts(actor, playbook){
+	  const pb_type = await actor.type;
+	  const pb_actor = await this.getPlaybookAcquaintances(pb_type, playbook);
+	  const LM = pb_actor.length;
+	  let i = 0;
+	  while(i<LM){
+	  const new_acq= pb_actor[i];
+	  await this.addAcquaintance(actor, new_acq);
+	  i++;}
+	}
 
 }

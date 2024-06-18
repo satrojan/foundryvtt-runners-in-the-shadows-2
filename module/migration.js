@@ -3,13 +3,13 @@
  * @return {Promise}      A Promise which resolves once the migration is completed
  */
 export const migrateWorld = async function() {
-  ui.notifications.info(`Applying RITS Actors migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
+  ui.notifications.info(`Applying BITD Actors migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
 
   // Migrate World Actors
   for ( let a of game.actors.contents ) {
-    if (a.data.type === 'character') {
+    if (a.type === 'character') {
       try {
-        const updateData = await _migrateActor(a);
+        const updateData = _migrateActor(a);
         if ( !isObjectEmpty(updateData) ) {
           console.log(`Migrating Actor entity ${a.name}`);
           await a.update(updateData, {enforceTypes: false});
@@ -20,9 +20,9 @@ export const migrateWorld = async function() {
     }
 
     // Migrate Token Link for Character and Crew
-    if (a.data.type === 'character' || a.data.type === 'crew') {
+    if (a.type === 'character' || a.type === 'crew') {
       try {
-        const updateData = _migrateTokenLink(a.data);
+        const updateData = _migrateTokenLink(a);
         if ( !isObjectEmpty(updateData) ) {
           console.log(`Migrating Token Link for ${a.name}`);
           await a.update(updateData, {enforceTypes: false});
@@ -37,7 +37,7 @@ export const migrateWorld = async function() {
   // Migrate Actor Link
   for ( let s of game.scenes.contents ) {
     try {
-      const updateData = _migrateSceneData(s.data);
+      const updateData = _migrateSceneData(s);
       if ( !isObjectEmpty(updateData) ) {
         console.log(`Migrating Scene entity ${s.name}`);
         await s.update(updateData, {enforceTypes: false});
@@ -48,8 +48,8 @@ export const migrateWorld = async function() {
   }
 
   // Set the migration as complete
-  game.settings.set("rits", "systemMigrationVersion", game.system.data.version);
-  ui.notifications.info(`RITS System Migration to version ${game.system.data.version} completed!`, {permanent: true});
+  game.settings.set("bitd", "systemMigrationVersion", game.system.version);
+  ui.notifications.info(`BITD System Migration to version ${game.system.version} completed!`, {permanent: true});
 };
 
 
@@ -62,7 +62,7 @@ export const migrateWorld = async function() {
  * @return {Object}       The updateData to apply
  */
 export const _migrateSceneData = function(scene) {
-  const tokens = duplicate(scene.tokens);
+  const tokens = foundry.utils.deepClone(scene.tokens);
   return {
     tokens: tokens.map(t => {
       t.actorLink = true;
@@ -83,138 +83,60 @@ export const _migrateSceneData = function(scene) {
  * @param {Actor} actor   The actor to Update
  * @return {Object}       The updateData to apply
  */
-async function _migrateActor(actor) {
+function _migrateActor(actor) {
+
   let updateData = {}
 
   // Migrate Skills
-  const attributes = game.system.model.Actor.character.attributes;
-  for ( let attribute_name of Object.keys(actor.data.data.attributes || {}) ) {
+  const attributes = game.model.Actor.character.attributes;
+  for ( let attribute_name of Object.keys(actor.system.attributes || {}) ) {
 
     // Insert attribute label
-    if (typeof actor.data.data.attributes[attribute_name].label === 'undefined') {
-      updateData[`data.attributes.${attribute_name}.label`] = attributes[attribute_name].label;
+    if (typeof actor.system.attributes[attribute_name].label === 'undefined') {
+      updateData[`system.attributes.${attribute_name}.label`] = attributes[attribute_name].label;
     }
-    for ( let skill_name of Object.keys(actor.data.data.attributes[attribute_name]['skills']) ) {
+    for ( let skill_name of Object.keys(actor.system.attributes[attribute_name]['skills']) ) {
 
       // Insert skill label
       // Copy Skill value
-      if (typeof actor.data.data.attributes[attribute_name].skills[skill_name].label === 'undefined') {
+      if (typeof actor.system.attributes[attribute_name].skills[skill_name].label === 'undefined') {
 
         // Create Label.
-        updateData[`data.attributes.${attribute_name}.skills.${skill_name}.label`] = attributes[attribute_name].skills[skill_name].label;
+        updateData[`system.attributes.${attribute_name}.skills.${skill_name}.label`] = attributes[attribute_name].skills[skill_name].label;
         // Migrate from skillname = [0]
-        let skill_tmp = actor.data.data.attributes[attribute_name].skills[skill_name];
+        let skill_tmp = actor.system.attributes[attribute_name].skills[skill_name];
         if (Array.isArray(skill_tmp)) {
-          updateData[`data.attributes.${attribute_name}.skills.${skill_name}.value`] = [skill_tmp[0]];
+          updateData[`system.attributes.${attribute_name}.skills.${skill_name}.value`] = [skill_tmp[0]];
         }
-        
+
       }
     }
   }
 
-  // Migrate Edge to Array
-  if (typeof actor.data.data.edge[0] !== 'undefined') {
-    updateData[`data.edge.value`] = actor.data.data.edge;
-    updateData[`data.edge.max`] = 9;
-    updateData[`data.edge.max_default`] = 9;
-    updateData[`data.edge.name_default`] = "RITS.Edge";
-    updateData[`data.edge.name`] = "RITS.Edge";
+  // Migrate Stress to Array
+  if (typeof actor.system.stress[0] !== 'undefined') {
+    updateData[`system.stress.value`] = actor.system.stress;
+    updateData[`system.stress.max`] = 9;
+    updateData[`system.stress.max_default`] = 9;
+    updateData[`system.stress.name_default`] = "BITD.Stress";
+    updateData[`system.stress.name`] = "BITD.Stress";
   }
 
   // Migrate Trauma to Array
-  if (typeof actor.data.data.trauma === 'undefined') {
-    updateData[`data.trauma.list`] = actor.data.traumas;
-    updateData[`data.trauma.value`] = [actor.data.traumas.length];
-    updateData[`data.trauma.max`] = 4;
-    updateData[`data.trauma.max_default`] = 4;
-    updateData[`data.trauma.name_default`] = "RITS.Trauma";
-    updateData[`data.trauma.name`] = "RITS.Trauma";
+  if (typeof actor.system.trauma === 'undefined') {
+    updateData[`system.trauma.list`] = actor.system.traumas;
+    updateData[`system.trauma.value`] = [actor.system.traumas.length];
+    updateData[`system.trauma.max`] = 4;
+    updateData[`system.trauma.max_default`] = 4;
+    updateData[`system.trauma.name_default`] = "BITD.Trauma";
+    updateData[`system.trauma.name`] = "BITD.Trauma";
   }
-
-  // Migrate character playbook
-  if (typeof actor.data.data.playbook === "undefined" || actor.data.data.playbook === ""){
-    console.log("No playbook set");
-    let old_playbook = actor.data.items.find(item => {
-      return item.type === "class";
-    });
-    console.log("Old playbook:", old_playbook);
-    if(typeof old_playbook != "undefined"){
-      let playbooks_content = await BladesHelpers.getSourcedItemsByType("class");
-      updateData[`data.playbook`] = playbooks_content.find(pb => pb.name === old_playbook.name)._id;
-      let existing_abilities = actor.items.filter(item => item.type === "ability");
-      for (const existingAbility of existing_abilities) {
-        await existingAbility.update({data : { purchased : true } });
-      }
-      await actor.addPlaybookAbilities(old_playbook.name);
-
-      // Migrate character playbook items
-      await actor.addPlaybookItems(old_playbook.name);
-
-      // Migrate character generic items
-      await actor.addGenericItems();
-
-      // Add default character NPCs
-      await actor.addPlaybookAcquaintances(old_playbook.name);
-      if (typeof actor.data.data.heritage === "undefined" || actor.data.data.heritage === "" || actor.data.data.heritage === "Heritage") {
-        let old_heritage = actor.data.items.find(item => {
-          return item.type === "heritage";
-        });
-        if (typeof old_heritage != "undefined") {
-          updateData[`data.heritage`] = old_heritage.name;
-        }
-      }
-      if (typeof actor.data.data.lineage === "undefined" || actor.data.data.lineage === "" || actor.data.data.lingeage === "Lineage") {
-        let old_lineage = actor.data.items.find(item => {
-          return item.type === "lineage";
-        });
-        if (typeof lineage != "undefined") {
-          updateData[`data.lineage`] = old_lineage.name;
-        }
-      }
-      if (typeof actor.data.data.background === "undefined" || actor.data.data.background === "" || actor.data.data.background === "Background") {
-        let old_background = actor.data.items.find(item => {
-          return item.type === "background";
-        });
-        if (typeof old_background != "undefined") {
-          updateData[`data.background`] = old_background.name;
-        }
-      }
-
-      if (typeof actor.data.data.vice === "undefined" || actor.data.data.vice === "" || actor.data.data.vice === "Vice") {
-        let old_vice = actor.data.items.find(item => {
-          return item.type === "vice";
-        });
-        if (typeof old_vice != "undefined") {
-          updateData[`data.vice`] = old_vice.name;
-        }
-      }
-
-    }
-    else{
-      ui.notifications.info(`No playbook/class item found. Please select a class manually via the dropdown`, {permanent: true});
-    }
-  }
-
-  console.log("fixing acquaintances")
-  //fix the fact that you're not using _id in the acquaintances array anymore
-  if(actor.data.data.acquaintances.length > 0){
-    let fixed = actor.data.data.acquaintances.map(acq => {
-      if("_id" in acq){
-        acq.id = acq._id;
-      }
-      return acq;
-    });
-    // let diff = diffObject(actor.data.data.acquaintances, fixed);
-    updateData["data.acquaintances"] = fixed;
-
-  }
-
 
   return updateData;
 
-  // for ( let k of Object.keys(actor.data.attributes || {}) ) {
-  //   if ( k in b ) updateData[`data.bonuses.${k}`] = b[k];
-  //   else updateData[`data.bonuses.-=${k}`] = null;
+  // for ( let k of Object.keys(actor.system.attributes || {}) ) {
+  //   if ( k in b ) updateData[`system.bonuses.${k}`] = b[k];
+  //   else updateData[`system.bonuses.-=${k}`] = null;
   // }
 }
 
@@ -229,7 +151,7 @@ async function _migrateActor(actor) {
 function _migrateTokenLink(actor) {
 
   let updateData = {}
-  updateData['token.actorLink'] = true;
+  updateData['prototypeToken.actorLink'] = true;
 
   return updateData;
 }
