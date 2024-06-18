@@ -20,14 +20,17 @@ export class BladesNPCSheet extends BladesSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const data = super.getData();
-    data.editable = this.options.editable;
-    const actorData = data.data;
-    data.actor = actorData;
-    data.data = actorData.data;
-    return data;
-  }
+  async getData(options) {
+    const superData = super.getData( options );
+    const sheetData = superData.data;
+
+    sheetData.isGM = game.user.isGM;
+    sheetData.owner = superData.owner;
+    sheetData.editable = superData.editable;
+
+    sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
+
+    return sheetData;
 
   /* -------------------------------------------- */
 

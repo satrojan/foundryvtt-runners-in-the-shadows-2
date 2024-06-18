@@ -1,7 +1,7 @@
 /**
  * Roll Dice.
- * @param {int} dice_amount 
- * @param {string} attribute_name 
+ * @param {int} dice_amount
+ * @param {string} attribute_name
  * @param {string} position
  * @param {string} effect
  */
@@ -11,7 +11,7 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
   let zeromode = false;
   
   if ( dice_amount < 0 ) { dice_amount = 0; }
-  if ( dice_amount == 0 ) { zeromode = true; dice_amount = 2; }
+  if ( dice_amount === 0 ) { zeromode = true; dice_amount = 2; }
 
   let r = new Roll( `${dice_amount}d6`, {} );
 

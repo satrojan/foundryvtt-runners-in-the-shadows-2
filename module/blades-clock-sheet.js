@@ -20,22 +20,23 @@ export class BladesClockSheet extends BladesSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    var data = super.getData();
-    data.editable = this.options.editable;
-    const actorData = data.data;
-    data.actor = actorData;
-    data.data = actorData.data;
-    return data;
+  getData(options) {
+    const superData = super.getData( options );
+	const sheetData = superData.data;
+	sheetData.owner = superData.owner;
+	sheetData.ediable = superData.editable;
+	sheetData.isGM = game.user.isGM;
+    
+    return sheetData;
   }
 
     /* -------------------------------------------- */
 
   /** @override */
   async _updateObject(event, formData) {
-    let image_path = `systems/runners-in-the-shadows/styles/assets/progressclocks-svg/Progress Clock ${formData['data.type']}-${formData['data.value']}.svg`;
+    let image_path = `systems/runners-in-the-shadows/styles/assets/progressclocks-svg/Progress Clock ${formData['system.type']}-${formData['system.value']}.svg`;
     formData['img'] = image_path;
-    formData['token.img'] = image_path;
+    formData['prototypeToken.texture.src'] = image_path;
     let data = [];
     let update = {
       img: image_path,

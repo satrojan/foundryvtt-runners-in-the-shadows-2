@@ -237,29 +237,19 @@ export class BladesActorSheet extends BladesSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  async getData() {
-    let data = super.getData();
-    data.editable = this.options.editable;
-    data.isGM = game.user.isGM;
-    const actorData = data.data;
-    data.actor = actorData;
-    data.data = actorData.data;
+  async getData(options) {
+    const superData = super.getData( options );
+	const sheetData = superData.data;
+	sheetData.owner = superData.owner;
+	sheetData.editable = superData.editable;
+	sheetData.isGM = game.user.isGM;
 
     // Prepare active effects
-    data.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
     // Calculate Load
     let loadout = 0;
-    data.items.forEach(i => {
-      loadout += (i.type === "item" && i.data.equipped) ? parseInt(i.data.load) : 0});
-    data.data.loadout = loadout;
-
-    // Encumbrance Levels
-    let load_level=["RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Normal","RITS.Normal","RITS.Heavy","RITS.Encumbered",
-			"RITS.Encumbered","RITS.Encumbered","RITS.OverMax"];
-    let mule_level=["RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Normal","RITS.Normal",
-			"RITS.Heavy","RITS.Encumbered","RITS.OverMax"];
-    let mule_present=0;
+    sheetData.items.forEach(i => {loadout += (i.type === "item") ? parseInt(i.system.load) : 0});
 
     //Sanity Check
     if (loadout < 0) {
@@ -268,95 +258,36 @@ export class BladesActorSheet extends BladesSheet {
     if (loadout > 10) {
       loadout = 10;
     }
+	
+	sheetData.system.loadout = loadout;
+
+    // Encumbrance Levels
+    let load_level=["RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Normal","RITS.Normal","RITS.Heavy","RITS.Encumbered",
+			"RITS.Encumbered","RITS.Encumbered","RITS.OverMax"];
+    let mule_level=["RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Light","RITS.Normal","RITS.Normal",
+			"RITS.Heavy","RITS.Encumbered","RITS.OverMax"];
+    let mule_present=0;
 
     //look for Mule ability
     // @todo - fix translation.
-    data.items.forEach(i => {
-      if (i.type === "ability" && i.name === "(C) Mule" && i.data.purchased) {
+    sheetData.items.forEach(i => {
+      if (i.type === "ability" && i.name === "(C) Mule") {
         mule_present = 1;
       }
     });
 
     //set encumbrance level
     if (mule_present) {
-      data.data.load_level=mule_level[loadout];
+      sheetData.system.load_level=mule_level[loadout];
     } else {
-      data.data.load_level=load_level[loadout];
+      sheetData.system.load_level=load_level[loadout];
     }
 
-    switch (data.data.selected_load_level){
-      case "RITS.Light":
-        data.max_load = data.data.base_max_load + 3;
-        break;
-      case "RITS.Normal":
-        data.max_load = data.data.base_max_load + 5;
-        break;
-      case "RITS.Heavy":
-        data.max_load = data.data.base_max_load + 6;
-        break;
-      default:
-        data.data.selected_load_level = "RITS.Normal";
-        data.max_load = data.base_max_load + 5;
-        break;
-    }
 
-    data.load_levels = {"RITS.Light":"RITS.Light", "RITS.Normal":"RITS.Normal", "RITS.Heavy":"RITS.Heavy"};
+    sheetData.system.load_levels = {"RITS.Light":"RITS.Light", "RITS.Normal":"RITS.Normal", "RITS.Heavy":"RITS.Heavy"};
+	sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
 
-    //load up playbook options/data for playbook select
-    // data.playbook_options = await game.packs.get("runners-in-the-shadows.class").getIndex();
-    data.playbook_options = await BladesHelpers.getSourcedItemsByType("class");
-    data.playbook_select = this.prepIndexForHelper(data.playbook_options);
-
-    if(data.data.playbook !== ""){
-      data.selected_playbook_full = await BladesHelpers.getItemByType("class", data.data.playbook);
-      if(typeof data.selected_playbook_full != "undefined"){
-        data.selected_playbook_name = data.selected_playbook_full.name;
-        data.selected_playbook_description = data.selected_playbook_full.data.data.description;
-      }
-    }
-    let available_abilities = data.items.filter(item => item.type == "ability" );
-
-    //hide the playbook abbreviations for display
-    data.available_abilities = available_abilities.map(item => {
-      item.name = item.name.replace(/\([^)]*\)\s/, "");
-      return item;
-    });
-
-    data.available_abilities = data.available_abilities.sort((a, b) => {
-      if(a.name == "Veteran" || b.data.class_default){
-        return 1;
-      }
-      if(b.name == "Veteran" || a.data.class_default){
-        return -1;
-      }
-      if(a.name == b.name){ return 0; }
-      return a.name > b.name ? 1 : -1;
-    });
-
-    let my_abilities = data.items.filter(ability => ability.type == "ability" && ability.data.purchased);
-    data.my_abilities = my_abilities;
-
-    // let playbook_items = data.items.filter(item => item.type == "item" && item.data.class == data.selected_playbook_name);
-    let my_items = data.items.filter(item => item.type == "item" && item.data.class != "");
-
-    //hide the playbook abbreviations for display
-    data.my_items = my_items.map(item => {
-      item.name = item.name.replace(/\([^)]*\)\s/, "")
-      return item;
-    });
-    data.generic_items = data.items.filter(item => item.type == "item" && item.data.class == "");
-
-    // data.ownedTraumas = [];
-    // if(data.data.trauma.list.length > 0){
-    //   for (const trauma in data.data.trauma.list){
-    //     console.log(trauma);
-    //     if(data.data.trauma.list[trauma]){
-    //       data.ownedTraumas.push(trauma.charAt(0).toUpperCase() + trauma.slice(1));
-    //     }
-    //   }
-    // }
-
-    return data;
+    return sheetData;
   }
 
   prepIndexForHelper(index){

@@ -7,7 +7,7 @@ export const migrateWorld = async function() {
 
   // Migrate World Actors
   for ( let a of game.actors.contents ) {
-    if (a.data.type === 'character') {
+    if (a.type === 'character') {
       try {
         const updateData = await _migrateActor(a);
         if ( !isObjectEmpty(updateData) ) {
@@ -20,9 +20,9 @@ export const migrateWorld = async function() {
     }
 
     // Migrate Token Link for Character and Crew
-    if (a.data.type === 'character' || a.data.type === 'crew') {
+    if (a.type === 'character' || a.data.type === 'crew') {
       try {
-        const updateData = _migrateTokenLink(a.data);
+        const updateData = _migrateTokenLink(a);
         if ( !isObjectEmpty(updateData) ) {
           console.log(`Migrating Token Link for ${a.name}`);
           await a.update(updateData, {enforceTypes: false});
@@ -37,7 +37,7 @@ export const migrateWorld = async function() {
   // Migrate Actor Link
   for ( let s of game.scenes.contents ) {
     try {
-      const updateData = _migrateSceneData(s.data);
+      const updateData = _migrateSceneData(s);
       if ( !isObjectEmpty(updateData) ) {
         console.log(`Migrating Scene entity ${s.name}`);
         await s.update(updateData, {enforceTypes: false});
@@ -48,8 +48,8 @@ export const migrateWorld = async function() {
   }
 
   // Set the migration as complete
-  game.settings.set("rits", "systemMigrationVersion", game.system.data.version);
-  ui.notifications.info(`RITS System Migration to version ${game.system.data.version} completed!`, {permanent: true});
+  game.settings.set("rits", "systemMigrationVersion", game.system.version);
+  ui.notifications.info(`BITD System Migration to version ${game.system.version} completed!`, {permanent: true});
 };
 
 
@@ -62,7 +62,7 @@ export const migrateWorld = async function() {
  * @return {Object}       The updateData to apply
  */
 export const _migrateSceneData = function(scene) {
-  const tokens = duplicate(scene.tokens);
+  const tokens = foundry.utils.deepClone(scene.tokens);
   return {
     tokens: tokens.map(t => {
       t.actorLink = true;
@@ -88,24 +88,24 @@ async function _migrateActor(actor) {
 
   // Migrate Skills
   const attributes = game.system.model.Actor.character.attributes;
-  for ( let attribute_name of Object.keys(actor.data.data.attributes || {}) ) {
+  for ( let attribute_name of Object.keys(actor.system.attributes || {}) ) {
 
     // Insert attribute label
-    if (typeof actor.data.data.attributes[attribute_name].label === 'undefined') {
-      updateData[`data.attributes.${attribute_name}.label`] = attributes[attribute_name].label;
+    if (typeof actor.system.data.attributes[attribute_name].label === 'undefined') {
+      updateData[`system.attributes.${attribute_name}.label`] = attributes[attribute_name].label;
     }
-    for ( let skill_name of Object.keys(actor.data.data.attributes[attribute_name]['skills']) ) {
+    for ( let skill_name of Object.keys(actor.system.data.attributes[attribute_name]['skills']) ) {
 
       // Insert skill label
       // Copy Skill value
-      if (typeof actor.data.data.attributes[attribute_name].skills[skill_name].label === 'undefined') {
+      if (typeof actor.system.data.attributes[attribute_name].skills[skill_name].label === 'undefined') {
 
         // Create Label.
-        updateData[`data.attributes.${attribute_name}.skills.${skill_name}.label`] = attributes[attribute_name].skills[skill_name].label;
+        updateData[`system.attributes.${attribute_name}.skills.${skill_name}.label`] = attributes[attribute_name].skills[skill_name].label;
         // Migrate from skillname = [0]
-        let skill_tmp = actor.data.data.attributes[attribute_name].skills[skill_name];
+        let skill_tmp = actor.system.attributes[attribute_name].skills[skill_name];
         if (Array.isArray(skill_tmp)) {
-          updateData[`data.attributes.${attribute_name}.skills.${skill_name}.value`] = [skill_tmp[0]];
+          updateData[`system.attributes.${attribute_name}.skills.${skill_name}.value`] = [skill_tmp[0]];
         }
         
       }
@@ -113,22 +113,22 @@ async function _migrateActor(actor) {
   }
 
   // Migrate Edge to Array
-  if (typeof actor.data.data.edge[0] !== 'undefined') {
-    updateData[`data.edge.value`] = actor.data.data.edge;
-    updateData[`data.edge.max`] = 9;
-    updateData[`data.edge.max_default`] = 9;
-    updateData[`data.edge.name_default`] = "RITS.Edge";
-    updateData[`data.edge.name`] = "RITS.Edge";
+  if (typeof actor.system.edge[0] !== 'undefined') {
+    updateData[`system.edge.value`] = actor.system.data.edge;
+    updateData[`system.edge.max`] = 9;
+    updateData[`system.edge.max_default`] = 9;
+    updateData[`system.edge.name_default`] = "RITS.Edge";
+    updateData[`system.edge.name`] = "RITS.Edge";
   }
 
   // Migrate Trauma to Array
-  if (typeof actor.data.data.trauma === 'undefined') {
-    updateData[`data.trauma.list`] = actor.data.traumas;
-    updateData[`data.trauma.value`] = [actor.data.traumas.length];
-    updateData[`data.trauma.max`] = 4;
-    updateData[`data.trauma.max_default`] = 4;
-    updateData[`data.trauma.name_default`] = "RITS.Trauma";
-    updateData[`data.trauma.name`] = "RITS.Trauma";
+  if (typeof actor.system.trauma === 'undefined') {
+    updateData[`system.trauma.list`] = actor.system.traumas;
+    updateData[`system.trauma.value`] = [actor.system.traumas.length];
+    updateData[`system.trauma.max`] = 4;
+    updateData[`system.trauma.max_default`] = 4;
+    updateData[`system.trauma.name_default`] = "RITS.Trauma";
+    updateData[`system.trauma.name`] = "RITS.Trauma";
   }
 
   // Migrate character playbook
@@ -229,7 +229,7 @@ async function _migrateActor(actor) {
 function _migrateTokenLink(actor) {
 
   let updateData = {}
-  updateData['token.actorLink'] = true;
+  updateData['prototypeToken.actorLink'] = true;
 
   return updateData;
 }
